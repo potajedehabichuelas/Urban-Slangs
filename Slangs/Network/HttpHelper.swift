@@ -24,13 +24,13 @@ class HttpHelper: NSObject {
     */
     
     //POST Request
-    class func httpPostURL(url: String, postPath: String, parametersDict:Dictionary<String, AnyObject>) -> AnyObject?
+    class func httpPostURL(url: String, postPath: String, parametersDict:Dictionary<String, AnyObject>?) -> AnyObject?
     {
         // ? declares variable as optional, just in case the request fails
         var responseJSON : AnyObject? = nil;
         
         //Create the urls
-        var fullURL = url.stringByAppendingString(postPath);
+        let fullURL = url.stringByAppendingString(postPath);
         
         //Semaphore to wait for completition block
         let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
@@ -41,13 +41,13 @@ class HttpHelper: NSObject {
             parameters: parametersDict,
             success: {
                 (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                println("JSON: " + responseObject.description);
+                //println("JSON: " + responseObject.description);
                 
                 responseJSON = responseObject;
                 //Signal semaphore
-                dispatch_semaphore_signal(semaphore)
-            },
-            failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+                dispatch_semaphore_signal(semaphore);
+                
+            }, failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
                 println("[HTTPHelper Error]: " + error.localizedDescription);
                 //Maybe check for internet connection ?
                 
@@ -62,7 +62,7 @@ class HttpHelper: NSObject {
     }
 
     //GET Request
-    class func httpGetURL(url: String, postPath: String, parametersDict:Dictionary<String, AnyObject>) -> AnyObject?
+    class func httpGetURL(url: String, postPath: String, parametersDict:Dictionary<String, AnyObject>?) -> AnyObject?
     {
     
         // ? declares variable as optional, just in case the request fails
@@ -80,13 +80,13 @@ class HttpHelper: NSObject {
             parameters: parametersDict,
             success: {
                 (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                println("JSON: " + responseObject.description);
+                //println("JSON: " + responseObject.description);
                 
                 responseJSON = responseObject;
                 //Signal semaphore
-                dispatch_semaphore_signal(semaphore)
-            },
-            failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+                dispatch_semaphore_signal(semaphore);
+                
+            },failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
                 println("[HTTPHelper Error]: " + error.localizedDescription);
                 //Maybe check for internet connection ?
                 
@@ -97,7 +97,7 @@ class HttpHelper: NSObject {
         //Wait for the completition of the request
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
         
-        return responseJSON;
+        return responseJSON!;
 
     }
 }

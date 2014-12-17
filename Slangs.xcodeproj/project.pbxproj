@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4805C7611A41756100E293C9 /* SlangNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4805C7601A41756100E293C9 /* SlangNet.swift */; };
+		4805C7641A4177C500E293C9 /* Definition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4805C7631A4177C500E293C9 /* Definition.swift */; };
+		4805C7661A418FD800E293C9 /* QueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4805C7651A418FD800E293C9 /* QueryResult.swift */; };
+		4805C7681A419F5200E293C9 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4805C7671A419F5200E293C9 /* ResultsViewController.swift */; };
 		480D0D851A3B175400BE323B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D0D841A3B175400BE323B /* AppDelegate.swift */; };
 		480D0D881A3B175400BE323B /* Slang_Dictionary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 480D0D861A3B175400BE323B /* Slang_Dictionary.xcdatamodeld */; };
 		480D0D8D1A3B175400BE323B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480D0D8B1A3B175400BE323B /* Main.storyboard */; };
 		480D0D8F1A3B175400BE323B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 480D0D8E1A3B175400BE323B /* Images.xcassets */; };
 		480D0D921A3B175400BE323B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480D0D901A3B175400BE323B /* LaunchScreen.xib */; };
 		480D0D9E1A3B175400BE323B /* Slang_DictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D0D9D1A3B175400BE323B /* Slang_DictionaryTests.swift */; };
-		485B40B61A3FA953007052A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B40B51A3FA953007052A6 /* ViewController.swift */; };
+		485B40B61A3FA953007052A6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B40B51A3FA953007052A6 /* SearchViewController.swift */; };
 		485B40B81A3FA989007052A6 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B40B71A3FA989007052A6 /* HttpHelper.swift */; };
 		485B40CF1A3FB220007052A6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 485B40BD1A3FB220007052A6 /* AFHTTPRequestOperation.m */; };
 		485B40D01A3FB220007052A6 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 485B40BF1A3FB220007052A6 /* AFHTTPRequestOperationManager.m */; };
@@ -38,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4805C7601A41756100E293C9 /* SlangNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlangNet.swift; sourceTree = "<group>"; };
+		4805C7631A4177C500E293C9 /* Definition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
+		4805C7651A418FD800E293C9 /* QueryResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryResult.swift; sourceTree = "<group>"; };
+		4805C7671A419F5200E293C9 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		480D0D7F1A3B175400BE323B /* Slangs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slangs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		480D0D831A3B175400BE323B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		480D0D841A3B175400BE323B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../Slangs/AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +56,7 @@
 		480D0D971A3B175400BE323B /* SlangsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlangsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		480D0D9C1A3B175400BE323B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		480D0D9D1A3B175400BE323B /* Slang_DictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slang_DictionaryTests.swift; sourceTree = "<group>"; };
-		485B40B51A3FA953007052A6 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		485B40B51A3FA953007052A6 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		485B40B71A3FA989007052A6 /* HttpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
 		485B40B91A3FB1AB007052A6 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "../Slangs/Bridging-Header.h"; sourceTree = "<group>"; };
 		485B40BC1A3FB220007052A6 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -92,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4805C7621A4177B700E293C9 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4805C7631A4177C500E293C9 /* Definition.swift */,
+				4805C7651A418FD800E293C9 /* QueryResult.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		480D0D761A3B175300BE323B = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +132,7 @@
 		480D0D811A3B175400BE323B /* Slangs */ = {
 			isa = PBXGroup;
 			children = (
+				4805C7621A4177B700E293C9 /* Objects */,
 				485B40B31A3FA953007052A6 /* Network */,
 				485B40B41A3FA953007052A6 /* View Controllers */,
 				480D0D841A3B175400BE323B /* AppDelegate.swift */,
@@ -158,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				485B40B71A3FA989007052A6 /* HttpHelper.swift */,
+				4805C7601A41756100E293C9 /* SlangNet.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -165,7 +184,8 @@
 		485B40B41A3FA953007052A6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				485B40B51A3FA953007052A6 /* ViewController.swift */,
+				485B40B51A3FA953007052A6 /* SearchViewController.swift */,
+				4805C7671A419F5200E293C9 /* ResultsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -306,14 +326,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				480D0D851A3B175400BE323B /* AppDelegate.swift in Sources */,
+				4805C7661A418FD800E293C9 /* QueryResult.swift in Sources */,
 				485B40D31A3FB220007052A6 /* AFSecurityPolicy.m in Sources */,
-				485B40B61A3FA953007052A6 /* ViewController.swift in Sources */,
+				4805C7641A4177C500E293C9 /* Definition.swift in Sources */,
+				485B40B61A3FA953007052A6 /* SearchViewController.swift in Sources */,
 				485B40D01A3FB220007052A6 /* AFHTTPRequestOperationManager.m in Sources */,
 				485B40D41A3FB220007052A6 /* AFURLConnectionOperation.m in Sources */,
+				4805C7681A419F5200E293C9 /* ResultsViewController.swift in Sources */,
 				485B40CF1A3FB220007052A6 /* AFHTTPRequestOperation.m in Sources */,
 				480D0D881A3B175400BE323B /* Slang_Dictionary.xcdatamodeld in Sources */,
 				485B40D51A3FB220007052A6 /* AFURLRequestSerialization.m in Sources */,
 				485B40D11A3FB220007052A6 /* AFHTTPSessionManager.m in Sources */,
+				4805C7611A41756100E293C9 /* SlangNet.swift in Sources */,
 				485B40D21A3FB220007052A6 /* AFNetworkReachabilityManager.m in Sources */,
 				485B40D61A3FB220007052A6 /* AFURLResponseSerialization.m in Sources */,
 				485B40D71A3FB220007052A6 /* AFURLSessionManager.m in Sources */,

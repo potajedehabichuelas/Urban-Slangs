@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Slang_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="Slangs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,12 +15,88 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Op-lf-4HH">
+                                <rect key="frame" x="198" y="269" width="204" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="BjY-Rx-HrX"/>
+                                    <constraint firstAttribute="width" constant="204" id="YfK-IT-5yO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ixz-Ek-lHG"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEARCH ME!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGI-D3-buB">
+                                <rect key="frame" x="198" y="224" width="204" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="HCM-Gb-fec"/>
+                                    <constraint firstAttribute="width" constant="204" id="Lp9-sB-DgU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tJ-yR-rHG">
+                                <rect key="frame" x="402" y="269" width="91" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="nHL-NR-bVA"/>
+                                    <constraint firstAttribute="height" constant="62" id="qwT-BZ-Jg3"/>
+                                </constraints>
+                                <state key="normal" title="SEARCH!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchString:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zHG-e7-CC8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0tJ-yR-rHG" firstAttribute="top" secondItem="4Op-lf-4HH" secondAttribute="top" id="6zO-dx-jNn"/>
+                            <constraint firstAttribute="centerY" secondItem="4Op-lf-4HH" secondAttribute="centerY" id="Iav-Zu-7xu"/>
+                            <constraint firstItem="0tJ-yR-rHG" firstAttribute="leading" secondItem="4Op-lf-4HH" secondAttribute="trailing" constant="3" id="Vs6-Ww-r8j"/>
+                            <constraint firstItem="4Op-lf-4HH" firstAttribute="top" secondItem="iGI-D3-buB" secondAttribute="bottom" constant="24" id="X47-Lo-Rd7"/>
+                            <constraint firstAttribute="centerY" secondItem="iGI-D3-buB" secondAttribute="centerY" constant="65.5" id="fp9-Ty-uq9"/>
+                            <constraint firstItem="0tJ-yR-rHG" firstAttribute="leading" secondItem="4Op-lf-4HH" secondAttribute="trailing" id="gQ2-gD-Puk"/>
+                            <constraint firstAttribute="centerX" secondItem="iGI-D3-buB" secondAttribute="centerX" id="n5O-6l-MVC"/>
+                            <constraint firstItem="0tJ-yR-rHG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="249" id="t9T-mn-Hk1"/>
+                            <constraint firstAttribute="centerX" secondItem="4Op-lf-4HH" secondAttribute="centerX" id="unG-46-5Ox"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Vs6-Ww-r8j"/>
+                                <exclude reference="t9T-mn-Hk1"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="searchButton" destination="0tJ-yR-rHG" id="CCk-dh-y3V"/>
+                        <outlet property="searchTextField" destination="4Op-lf-4HH" id="Voi-28-l01"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="471.99999999999994"/>
+            <point key="canvasLocation" x="526" y="471"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="aDd-FV-iLE">
+            <objects>
+                <viewController id="uu8-GG-Unn" customClass="ResultsViewController" customModule="Slangs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h8v-7g-H46"/>
+                        <viewControllerLayoutGuide type="bottom" id="t7D-nV-Oen"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ANM-In-pWq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8mO-LT-pkX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1265" y="471"/>
         </scene>
     </scenes>
 </document>
