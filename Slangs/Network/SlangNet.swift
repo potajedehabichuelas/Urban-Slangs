@@ -12,10 +12,6 @@ private let BASE_URL : String = "http://api.urbandictionary.com/v0/";
 
 private let DEFINE_API : String = "define?term=";
 
-
-
-
-
 private let _singletonSharedInstance = SlangNet();
 
 class SlangNet: NSObject {
