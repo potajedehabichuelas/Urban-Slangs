@@ -48,6 +48,12 @@ class ResultsPageViewController: UIViewController {
         self.defTextView.text = self.definition.definition;
         //Example
         self.examplesTextView.text = self.definition.example;
+        
+        //Force textview to calculate its content
+        self.defTextView.sizeToFit()
+        self.examplesTextView.sizeToFit()
+        //Update constraints to adjust its frame
+        self.view.layoutIfNeeded()
         //Tags
         
         //Definition number label
@@ -73,6 +79,7 @@ class ResultsPageViewController: UIViewController {
         
         //Update the constraints for the text view so it sizes to its content
         self.defTvHeightConstriant.constant = self.defTextView.contentSize.height;
+        println(self.defTextView.contentSize.height)
         
         self.examplesTvHeightConstraint.constant = self.examplesTextView.contentSize.height;
     }

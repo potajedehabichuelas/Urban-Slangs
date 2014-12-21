@@ -27,11 +27,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         //Hidden status bar
         UIApplication.sharedApplication().statusBarHidden = true;
         
-        //Set the type of activity indicator depending on the device type
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            //self.activityIndicator.st
-        }
+        //Dismiss keyboard when tapping outside the view
+        var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        self.view.addGestureRecognizer(tap)
         
     }
     
@@ -52,6 +53,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         //DisableButton
         self.searchButton.enabled = false;
+
         //Show the activity indicator
         self.activityIndicator.alpha = 1.0;
         self.activityIndicator.hidden = false;
@@ -102,6 +104,72 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    //MARK - UITextField
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        self.searchString(self.searchButton);
+        
+        return true
+    }
+
+    
+    //MARK - Keyboard and view editing
+    
+    func keyboardWillShow(notification: NSNotification)
+    {
+        //Lift the view up only if the device is in landscape
+        if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
+            
+            var info = notification.userInfo!
+            var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+            
+            //Get animation time
+            var durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as Double;
+            var animationDuration : NSTimeInterval = durationValue
+            
+            //And the animation curve
+            var curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as Int;
+            
+            var animationCurve = UIViewAnimationCurve(rawValue: curveValue) // or use UIViewAnimationOptions(kbCurve << 16)  directly in the UIView animation
+            
+            //When we are typing the comment, move upwards the view so we can see what we are typing
+            
+            UIView.animateWithDuration(animationDuration, delay: 0.0, options: .CurveEaseInOut, animations: {
+                if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+                    self.view.frame = CGRectMake(self.view.frame.origin.x, -keyboardFrame.size.height * 0.2, self.view.frame.size.width, self.view.frame.size.height)
+                } else {
+                    self.view.frame = CGRectMake(self.view.frame.origin.x, -keyboardFrame.size.height * 0.5, self.view.frame.size.width, self.view.frame.size.height)
+                }
+            }, completion: nil)
+        }
+    }
+    
+    
+    func keyboardWillHide(notification: NSNotification)
+    {
+        var info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+        
+        //Get animation time
+        var durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as Double;
+        var animationDuration : NSTimeInterval = durationValue
+        
+        //And the animation curve
+        var curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as Int;
+        
+        var animationCurve = UIViewAnimationCurve(rawValue: curveValue) // or use UIViewAnimationOptions(kbCurve << 16)  directly in the UIView animation
+        
+        //When we are typing the comment, move upwards the view so we can see what we are typing
+        
+        UIView.animateWithDuration(animationDuration, delay: 0.0, options: .CurveEaseInOut, animations: {
+            self.view.frame = CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height)
+            }, completion: nil)
+    }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true);
+    }
     
     // MARK: - Navigation
     

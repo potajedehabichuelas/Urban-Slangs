@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "480D0D7E1A3B175400BE323B"
-               BuildableName = "Slangs.app"
-               BlueprintName = "Slangs"
-               ReferencedContainer = "container:Slangs.xcodeproj">
+               BuildableName = "Urban Slangs.app"
+               BlueprintName = "Urban Slangs"
+               ReferencedContainer = "container:Urban Slangs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "480D0D961A3B175400BE323B"
-               BuildableName = "SlangsTests.xctest"
-               BlueprintName = "SlangsTests"
-               ReferencedContainer = "container:Slangs.xcodeproj">
+               BuildableName = "Urban SlangsTests.xctest"
+               BlueprintName = "Urban SlangsTests"
+               ReferencedContainer = "container:Urban Slangs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "480D0D961A3B175400BE323B"
-               BuildableName = "SlangsTests.xctest"
-               BlueprintName = "SlangsTests"
-               ReferencedContainer = "container:Slangs.xcodeproj">
+               BuildableName = "Urban SlangsTests.xctest"
+               BlueprintName = "Urban SlangsTests"
+               ReferencedContainer = "container:Urban Slangs.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "480D0D7E1A3B175400BE323B"
-            BuildableName = "Slangs.app"
-            BlueprintName = "Slangs"
-            ReferencedContainer = "container:Slangs.xcodeproj">
+            BuildableName = "Urban Slangs.app"
+            BlueprintName = "Urban Slangs"
+            ReferencedContainer = "container:Urban Slangs.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "480D0D7E1A3B175400BE323B"
-            BuildableName = "Slangs.app"
-            BlueprintName = "Slangs"
-            ReferencedContainer = "container:Slangs.xcodeproj">
+            BuildableName = "Urban Slangs.app"
+            BlueprintName = "Urban Slangs"
+            ReferencedContainer = "container:Urban Slangs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "480D0D7E1A3B175400BE323B"
-            BuildableName = "Slangs.app"
-            BlueprintName = "Slangs"
-            ReferencedContainer = "container:Slangs.xcodeproj">
+            BuildableName = "Urban Slangs.app"
+            BlueprintName = "Urban Slangs"
+            ReferencedContainer = "container:Urban Slangs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

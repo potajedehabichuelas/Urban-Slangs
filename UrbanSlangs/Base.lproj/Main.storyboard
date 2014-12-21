@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="52b-gF-XCl">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -27,7 +28,7 @@
         <!--Urban Slang-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="Slangs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="Urban_Slangs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -65,9 +66,10 @@
                                         <variation key="widthClass=compact" constant="48"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" image="searchButton.png">
+                                <state key="normal" image="search.png" backgroundImage="searchButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" image="searchButtonDisabled.png"/>
                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="311" y="169" width="91" height="62"/>
                                 </variation>
@@ -90,7 +92,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Op-lf-4HH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search word.." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Op-lf-4HH">
                                 <rect key="frame" x="142" y="282" width="245" height="35"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -116,7 +118,7 @@
                                 </connections>
                             </textField>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="VdD-Tr-415">
-                                <rect key="frame" x="417" y="290" width="20" height="20"/>
+                                <rect key="frame" x="417" y="289" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="RMH-Ty-fVV"/>
                                     <constraint firstAttribute="width" constant="20" id="Z9d-u2-Ftm"/>
@@ -194,7 +196,7 @@
         <!--Results Manager View Controller-->
         <scene sceneID="kB3-iB-qoz">
             <objects>
-                <viewController id="QBl-W7-0Ob" customClass="ResultsManagerViewController" customModule="Slangs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QBl-W7-0Ob" customClass="ResultsManagerViewController" customModule="Urban_Slangs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IhB-dF-QsG"/>
                         <viewControllerLayoutGuide type="bottom" id="3nF-dl-9Wz"/>
@@ -220,7 +222,7 @@
         <!--Results Page View Controller-->
         <scene sceneID="aDd-FV-iLE">
             <objects>
-                <viewController storyboardIdentifier="ResultContentVC" id="uu8-GG-Unn" customClass="ResultsPageViewController" customModule="Slangs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultContentVC" id="uu8-GG-Unn" customClass="ResultsPageViewController" customModule="Urban_Slangs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h8v-7g-H46"/>
                         <viewControllerLayoutGuide type="bottom" id="t7D-nV-Oen"/>
@@ -263,7 +265,7 @@
                                 <rect key="frame" x="0.0" y="222" width="600" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Definition 1 / 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="BBS-05-3mp">
-                                        <rect key="frame" x="8" y="6" width="139" height="33"/>
+                                        <rect key="frame" x="17" y="6" width="139" height="33"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="139" id="5aZ-8A-sbc">
                                                 <variation key="widthClass=compact" constant="129"/>
@@ -320,6 +322,14 @@
                                             <constraint firstAttribute="height" constant="25" id="3c7-M6-m7k"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S97-E8-VaI" userLabel="lineView">
+                                        <rect key="frame" x="5" y="10" width="1" height="25"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="4JV-4x-Ph5"/>
+                                            <constraint firstAttribute="height" constant="25" id="5jo-3T-HWu"/>
+                                        </constraints>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="rqh-GO-b0w">
                                         <rect key="frame" x="432" y="6" width="49" height="33"/>
                                         <constraints>
@@ -334,9 +344,10 @@
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.56000000000000005" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.45000000000000001" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="1PR-jk-RhS" secondAttribute="trailing" constant="10" id="1Gj-of-vW0"/>
+                                    <constraint firstItem="BBS-05-3mp" firstAttribute="leading" secondItem="S97-E8-VaI" secondAttribute="trailing" constant="11" id="26p-jz-SXj"/>
                                     <constraint firstItem="1PR-jk-RhS" firstAttribute="top" secondItem="iVP-V2-BKM" secondAttribute="top" constant="13" id="2at-ET-gmq"/>
                                     <constraint firstItem="rsz-ge-WYj" firstAttribute="leading" secondItem="WF1-ep-srW" secondAttribute="trailing" constant="1" id="7I2-x7-ZfH"/>
                                     <constraint firstItem="WF1-ep-srW" firstAttribute="top" secondItem="iVP-V2-BKM" secondAttribute="top" constant="13" id="7S6-ux-lNy"/>
@@ -348,12 +359,13 @@
                                     </constraint>
                                     <constraint firstItem="rqh-GO-b0w" firstAttribute="leading" secondItem="W6d-xA-mtu" secondAttribute="trailing" constant="11" id="Jwb-rw-Jx4"/>
                                     <constraint firstItem="ezP-Ru-3US" firstAttribute="leading" secondItem="rqh-GO-b0w" secondAttribute="trailing" constant="5" id="QLG-gt-Vby"/>
+                                    <constraint firstItem="S97-E8-VaI" firstAttribute="leading" secondItem="iVP-V2-BKM" secondAttribute="leading" constant="5" id="SiE-5F-Yg8"/>
                                     <constraint firstItem="WF1-ep-srW" firstAttribute="leading" secondItem="ezP-Ru-3US" secondAttribute="trailing" constant="1" id="Ucf-i6-ENJ"/>
                                     <constraint firstItem="0m8-Eg-v7V" firstAttribute="leading" secondItem="rsz-ge-WYj" secondAttribute="trailing" constant="1" id="Wba-nW-kQo"/>
                                     <constraint firstItem="1PR-jk-RhS" firstAttribute="leading" secondItem="0m8-Eg-v7V" secondAttribute="trailing" constant="1" id="beo-RC-mIj"/>
                                     <constraint firstItem="rsz-ge-WYj" firstAttribute="leading" secondItem="WF1-ep-srW" secondAttribute="trailing" constant="1" id="fFS-X4-prV"/>
-                                    <constraint firstItem="BBS-05-3mp" firstAttribute="leading" secondItem="iVP-V2-BKM" secondAttribute="leading" constant="8" id="gct-6Y-09i"/>
                                     <constraint firstItem="ezP-Ru-3US" firstAttribute="top" secondItem="iVP-V2-BKM" secondAttribute="top" constant="13" id="nIb-wm-QC1"/>
+                                    <constraint firstItem="S97-E8-VaI" firstAttribute="top" secondItem="iVP-V2-BKM" secondAttribute="top" constant="10" id="nSx-gy-Q2W"/>
                                     <constraint firstItem="BBS-05-3mp" firstAttribute="top" secondItem="iVP-V2-BKM" secondAttribute="top" constant="6" id="pDD-cc-gkE"/>
                                     <constraint firstItem="0m8-Eg-v7V" firstAttribute="top" secondItem="iVP-V2-BKM" secondAttribute="top" constant="13" id="zlM-4U-Vrb"/>
                                 </constraints>
@@ -490,8 +502,10 @@
     </scenes>
     <resources>
         <image name="noStar.png" width="16" height="17"/>
+        <image name="search.png" width="23" height="23"/>
         <image name="searchBarContainer.png" width="804" height="218"/>
         <image name="searchBg.jpg" width="1024" height="768"/>
         <image name="searchButton.png" width="141" height="143"/>
+        <image name="searchButtonDisabled.png" width="55" height="55"/>
     </resources>
 </document>

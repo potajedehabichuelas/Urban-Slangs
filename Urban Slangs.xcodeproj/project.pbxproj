@@ -12,9 +12,7 @@
 		4805C7661A418FD800E293C9 /* QueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4805C7651A418FD800E293C9 /* QueryResult.swift */; };
 		480D0D851A3B175400BE323B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D0D841A3B175400BE323B /* AppDelegate.swift */; };
 		480D0D881A3B175400BE323B /* Slang_Dictionary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 480D0D861A3B175400BE323B /* Slang_Dictionary.xcdatamodeld */; };
-		480D0D8D1A3B175400BE323B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 480D0D8B1A3B175400BE323B /* Main.storyboard */; };
 		480D0D8F1A3B175400BE323B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 480D0D8E1A3B175400BE323B /* Images.xcassets */; };
-		480D0D921A3B175400BE323B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 480D0D901A3B175400BE323B /* LaunchScreen.xib */; };
 		480D0D9E1A3B175400BE323B /* Slang_DictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D0D9D1A3B175400BE323B /* Slang_DictionaryTests.swift */; };
 		485B40B61A3FA953007052A6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B40B51A3FA953007052A6 /* SearchViewController.swift */; };
 		485B40B81A3FA989007052A6 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B40B71A3FA989007052A6 /* HttpHelper.swift */; };
@@ -36,6 +34,11 @@
 		486600871A46838900CD090B /* fullStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 486600851A46838900CD090B /* fullStar@2x.png */; };
 		486600881A46838900CD090B /* noStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 486600861A46838900CD090B /* noStar@2x.png */; };
 		4866008A1A46853A00CD090B /* halfStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 486600891A46853A00CD090B /* halfStar@2x.png */; };
+		4866008E1A46A09900CD090B /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4866008D1A46A09900CD090B /* search@2x.png */; };
+		486600901A46A55F00CD090B /* searchButtonTest@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4866008F1A46A55F00CD090B /* searchButtonTest@2x.png */; };
+		486600921A46A79B00CD090B /* searchButtonDisabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 486600911A46A79B00CD090B /* searchButtonDisabled@2x.png */; };
+		486600971A46B30600CD090B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486600931A46B30600CD090B /* LaunchScreen.xib */; };
+		486600981A46B30600CD090B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 486600951A46B30600CD090B /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,19 +55,17 @@
 		4805C7601A41756100E293C9 /* SlangNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlangNet.swift; sourceTree = "<group>"; };
 		4805C7631A4177C500E293C9 /* Definition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definition.swift; sourceTree = "<group>"; };
 		4805C7651A418FD800E293C9 /* QueryResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryResult.swift; sourceTree = "<group>"; };
-		480D0D7F1A3B175400BE323B /* Slangs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slangs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		480D0D7F1A3B175400BE323B /* Urban Slangs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Urban Slangs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		480D0D831A3B175400BE323B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		480D0D841A3B175400BE323B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../Slangs/AppDelegate.swift; sourceTree = "<group>"; };
+		480D0D841A3B175400BE323B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		480D0D871A3B175400BE323B /* Slang_Dictionary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Slang_Dictionary.xcdatamodel; sourceTree = "<group>"; };
-		480D0D8C1A3B175400BE323B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		480D0D8E1A3B175400BE323B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Slangs/Images.xcassets; sourceTree = "<group>"; };
-		480D0D911A3B175400BE323B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		480D0D971A3B175400BE323B /* SlangsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlangsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		480D0D8E1A3B175400BE323B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		480D0D971A3B175400BE323B /* Urban SlangsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Urban SlangsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		480D0D9C1A3B175400BE323B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		480D0D9D1A3B175400BE323B /* Slang_DictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slang_DictionaryTests.swift; sourceTree = "<group>"; };
 		485B40B51A3FA953007052A6 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		485B40B71A3FA989007052A6 /* HttpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
-		485B40B91A3FB1AB007052A6 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "../Slangs/Bridging-Header.h"; sourceTree = "<group>"; };
+		485B40B91A3FB1AB007052A6 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		485B40BC1A3FB220007052A6 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		485B40BD1A3FB220007052A6 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		485B40BE1A3FB220007052A6 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -93,6 +94,11 @@
 		486600851A46838900CD090B /* fullStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fullStar@2x.png"; sourceTree = "<group>"; };
 		486600861A46838900CD090B /* noStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noStar@2x.png"; sourceTree = "<group>"; };
 		486600891A46853A00CD090B /* halfStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "halfStar@2x.png"; sourceTree = "<group>"; };
+		4866008D1A46A09900CD090B /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
+		4866008F1A46A55F00CD090B /* searchButtonTest@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchButtonTest@2x.png"; sourceTree = "<group>"; };
+		486600911A46A79B00CD090B /* searchButtonDisabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchButtonDisabled@2x.png"; sourceTree = "<group>"; };
+		486600941A46B30600CD090B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		486600961A46B30600CD090B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48BCFCA21A3FD0DA0089B684 /* SlangsPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlangsPrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,10 +133,10 @@
 			isa = PBXGroup;
 			children = (
 				485B40D81A3FCE01007052A6 /* Default-568h@2x.png */,
-				480D0D811A3B175400BE323B /* Slangs */,
+				480D0D811A3B175400BE323B /* Urban Slangs */,
 				485B40BA1A3FB220007052A6 /* Frameworks */,
 				486600781A42BD9300CD090B /* Resources */,
-				480D0D9A1A3B175400BE323B /* SlangsTests */,
+				480D0D9A1A3B175400BE323B /* UrbanSlangsTests */,
 				480D0D801A3B175400BE323B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -138,27 +144,28 @@
 		480D0D801A3B175400BE323B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				480D0D7F1A3B175400BE323B /* Slangs.app */,
-				480D0D971A3B175400BE323B /* SlangsTests.xctest */,
+				480D0D7F1A3B175400BE323B /* Urban Slangs.app */,
+				480D0D971A3B175400BE323B /* Urban SlangsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		480D0D811A3B175400BE323B /* Slangs */ = {
+		480D0D811A3B175400BE323B /* Urban Slangs */ = {
 			isa = PBXGroup;
 			children = (
+				486600931A46B30600CD090B /* LaunchScreen.xib */,
+				486600951A46B30600CD090B /* Main.storyboard */,
 				4805C7621A4177B700E293C9 /* Objects */,
 				485B40B31A3FA953007052A6 /* Network */,
 				485B40B41A3FA953007052A6 /* View Controllers */,
 				480D0D841A3B175400BE323B /* AppDelegate.swift */,
 				485B40B91A3FB1AB007052A6 /* Bridging-Header.h */,
-				480D0D8B1A3B175400BE323B /* Main.storyboard */,
 				480D0D8E1A3B175400BE323B /* Images.xcassets */,
-				480D0D901A3B175400BE323B /* LaunchScreen.xib */,
 				480D0D861A3B175400BE323B /* Slang_Dictionary.xcdatamodeld */,
 				480D0D821A3B175400BE323B /* Supporting Files */,
 			);
-			path = Slangs;
+			name = "Urban Slangs";
+			path = UrbanSlangs;
 			sourceTree = "<group>";
 		};
 		480D0D821A3B175400BE323B /* Supporting Files */ = {
@@ -170,13 +177,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		480D0D9A1A3B175400BE323B /* SlangsTests */ = {
+		480D0D9A1A3B175400BE323B /* UrbanSlangsTests */ = {
 			isa = PBXGroup;
 			children = (
 				480D0D9D1A3B175400BE323B /* Slang_DictionaryTests.swift */,
 				480D0D9B1A3B175400BE323B /* Supporting Files */,
 			);
-			path = SlangsTests;
+			path = UrbanSlangsTests;
 			sourceTree = "<group>";
 		};
 		480D0D9B1A3B175400BE323B /* Supporting Files */ = {
@@ -250,6 +257,9 @@
 		486600791A42BD9300CD090B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				486600911A46A79B00CD090B /* searchButtonDisabled@2x.png */,
+				4866008F1A46A55F00CD090B /* searchButtonTest@2x.png */,
+				4866008D1A46A09900CD090B /* search@2x.png */,
 				486600891A46853A00CD090B /* halfStar@2x.png */,
 				486600851A46838900CD090B /* fullStar@2x.png */,
 				486600861A46838900CD090B /* noStar@2x.png */,
@@ -272,9 +282,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		480D0D7E1A3B175400BE323B /* Slangs */ = {
+		480D0D7E1A3B175400BE323B /* Urban Slangs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 480D0DA11A3B175400BE323B /* Build configuration list for PBXNativeTarget "Slangs" */;
+			buildConfigurationList = 480D0DA11A3B175400BE323B /* Build configuration list for PBXNativeTarget "Urban Slangs" */;
 			buildPhases = (
 				480D0D7B1A3B175400BE323B /* Sources */,
 				480D0D7C1A3B175400BE323B /* Frameworks */,
@@ -284,14 +294,14 @@
 			);
 			dependencies = (
 			);
-			name = Slangs;
+			name = "Urban Slangs";
 			productName = "Slang Dictionary";
-			productReference = 480D0D7F1A3B175400BE323B /* Slangs.app */;
+			productReference = 480D0D7F1A3B175400BE323B /* Urban Slangs.app */;
 			productType = "com.apple.product-type.application";
 		};
-		480D0D961A3B175400BE323B /* SlangsTests */ = {
+		480D0D961A3B175400BE323B /* Urban SlangsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 480D0DA41A3B175400BE323B /* Build configuration list for PBXNativeTarget "SlangsTests" */;
+			buildConfigurationList = 480D0DA41A3B175400BE323B /* Build configuration list for PBXNativeTarget "Urban SlangsTests" */;
 			buildPhases = (
 				480D0D931A3B175400BE323B /* Sources */,
 				480D0D941A3B175400BE323B /* Frameworks */,
@@ -302,9 +312,9 @@
 			dependencies = (
 				480D0D991A3B175400BE323B /* PBXTargetDependency */,
 			);
-			name = SlangsTests;
+			name = "Urban SlangsTests";
 			productName = "Slang DictionaryTests";
-			productReference = 480D0D971A3B175400BE323B /* SlangsTests.xctest */;
+			productReference = 480D0D971A3B175400BE323B /* Urban SlangsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -318,6 +328,7 @@
 				TargetAttributes = {
 					480D0D7E1A3B175400BE323B = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = Z97F83GR8X;
 					};
 					480D0D961A3B175400BE323B = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -325,7 +336,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 480D0D7A1A3B175300BE323B /* Build configuration list for PBXProject "Slangs" */;
+			buildConfigurationList = 480D0D7A1A3B175300BE323B /* Build configuration list for PBXProject "Urban Slangs" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -338,8 +349,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				480D0D7E1A3B175400BE323B /* Slangs */,
-				480D0D961A3B175400BE323B /* SlangsTests */,
+				480D0D7E1A3B175400BE323B /* Urban Slangs */,
+				480D0D961A3B175400BE323B /* Urban SlangsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -349,13 +360,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				480D0D8D1A3B175400BE323B /* Main.storyboard in Resources */,
+				4866008E1A46A09900CD090B /* search@2x.png in Resources */,
 				4866008A1A46853A00CD090B /* halfStar@2x.png in Resources */,
 				486600871A46838900CD090B /* fullStar@2x.png in Resources */,
 				4866007F1A42C32200CD090B /* searchButton@2x.png in Resources */,
+				486600971A46B30600CD090B /* LaunchScreen.xib in Resources */,
 				485B40D91A3FCE01007052A6 /* Default-568h@2x.png in Resources */,
+				486600921A46A79B00CD090B /* searchButtonDisabled@2x.png in Resources */,
+				486600981A46B30600CD090B /* Main.storyboard in Resources */,
+				486600901A46A55F00CD090B /* searchButtonTest@2x.png in Resources */,
 				4866007E1A42C32200CD090B /* searchBarContainer@2x.png in Resources */,
-				480D0D921A3B175400BE323B /* LaunchScreen.xib in Resources */,
 				480D0D8F1A3B175400BE323B /* Images.xcassets in Resources */,
 				4866007B1A42BD9300CD090B /* searchBg@2x.jpg in Resources */,
 				486600881A46838900CD090B /* noStar@2x.png in Resources */,
@@ -410,28 +424,26 @@
 /* Begin PBXTargetDependency section */
 		480D0D991A3B175400BE323B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 480D0D7E1A3B175400BE323B /* Slangs */;
+			target = 480D0D7E1A3B175400BE323B /* Urban Slangs */;
 			targetProxy = 480D0D981A3B175400BE323B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		480D0D8B1A3B175400BE323B /* Main.storyboard */ = {
+		486600931A46B30600CD090B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				480D0D8C1A3B175400BE323B /* Base */,
-			);
-			name = Main.storyboard;
-			path = ../Slangs;
-			sourceTree = "<group>";
-		};
-		480D0D901A3B175400BE323B /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				480D0D911A3B175400BE323B /* Base */,
+				486600941A46B30600CD090B /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = ../Slangs;
+			sourceTree = "<group>";
+		};
+		486600951A46B30600CD090B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				486600961A46B30600CD090B /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -528,11 +540,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Slangs/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/UrbanSlangs/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = Slangs;
+				PRODUCT_NAME = "Urban Slangs";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/UrbanSlangs/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -540,11 +556,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Slangs/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/UrbanSlangs/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = Slangs;
+				PRODUCT_NAME = "Urban Slangs";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/UrbanSlangs/Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -560,11 +580,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SlangsTests/Info.plist;
+				INFOPLIST_FILE = UrbanSlangsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = SlangsTests;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Slangs/Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slangs.app/Slangs";
+				PRODUCT_NAME = "Urban SlangsTests";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/UrbanSlangs/Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Urban Slangs.app/Urban Slangs";
 			};
 			name = Debug;
 		};
@@ -576,18 +596,18 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SlangsTests/Info.plist;
+				INFOPLIST_FILE = UrbanSlangsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = SlangsTests;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Slangs/Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slangs.app/Slangs";
+				PRODUCT_NAME = "Urban SlangsTests";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/UrbanSlangs/Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Urban Slangs.app/Urban Slangs";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		480D0D7A1A3B175300BE323B /* Build configuration list for PBXProject "Slangs" */ = {
+		480D0D7A1A3B175300BE323B /* Build configuration list for PBXProject "Urban Slangs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				480D0D9F1A3B175400BE323B /* Debug */,
@@ -596,7 +616,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		480D0DA11A3B175400BE323B /* Build configuration list for PBXNativeTarget "Slangs" */ = {
+		480D0DA11A3B175400BE323B /* Build configuration list for PBXNativeTarget "Urban Slangs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				480D0DA21A3B175400BE323B /* Debug */,
@@ -605,7 +625,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		480D0DA41A3B175400BE323B /* Build configuration list for PBXNativeTarget "SlangsTests" */ = {
+		480D0DA41A3B175400BE323B /* Build configuration list for PBXNativeTarget "Urban SlangsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				480D0DA51A3B175400BE323B /* Debug */,
