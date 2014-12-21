@@ -13,6 +13,8 @@ private let QUERY_RESULT_SEGUE_ID : String = "QueryResultSegue";
 class SearchViewController: UIViewController, UITextFieldDelegate {
 
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     
@@ -24,6 +26,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         //Hidden status bar
         UIApplication.sharedApplication().statusBarHidden = true;
+        
+        //Set the type of activity indicator depending on the device type
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            //self.activityIndicator.st
+        }
         
     }
     
@@ -42,23 +50,50 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         //Search for the introduced string
         
+        //DisableButton
+        self.searchButton.enabled = false;
+        //Show the activity indicator
+        self.activityIndicator.alpha = 1.0;
+        self.activityIndicator.hidden = false;
+        
+        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
+            self.activityIndicator.alpha = 0.0;
+
+            }, completion: nil)
+        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
-            // do some task
-            //Test Request
             //Remove spaces and put +
             var searchWord : String = self.searchTextField.text.stringByReplacingOccurrencesOfString(" ", withString: "+", options: nil, range: nil)
             self.queryResult = SlangNet.sharedInstance.requestWordInformation(searchWord);
             
             dispatch_async(dispatch_get_main_queue()) {
                 // update some UI
+                
+                //Hide the activity indicator
+                UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
+                    //WEIRD SHIT HAPPENS self.activityIndicator.alpha = 1.0
+                    
+                    }, completion: { finished in
+                        self.activityIndicator.hidden = true;
+                        //Re enable the button
+                        self.searchButton.enabled = true;
+                })
+                
                 println("Request completed");
-                if (self.queryResult != nil) {
+                if (self.queryResult != nil && self.queryResult?.definitions?.count > 0) {
                     self.searchTextField.text = "";
                     //Go to the next screen to display results
                     self.canPerformResultSegue = true;
                     self.performSegueWithIdentifier(QUERY_RESULT_SEGUE_ID, sender:self.searchButton);
                 } else {
                     //Error!
+                    if self.queryResult?.definitions?.count == 0 {
+                        //No results
+                        println("no results")
+                    } else {
+                        //Error
+                        println("error")
+                    }
                     
                 }
                 

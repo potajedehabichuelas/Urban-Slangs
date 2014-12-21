@@ -70,6 +70,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         
         //Set the appropiate data for the VC
         resultVc.pageIndex = index;
+        resultVc.totalPages = results.definitions!.count;
         resultVc.definition = self.results.definitions![index];
         
         return resultVc;
