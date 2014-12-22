@@ -39,25 +39,7 @@ class ResultsPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //Set all the information
-        self.setUpRating();
-        //Word
-        self.wordLabel.text = self.definition.word;
-        //Definition
-        self.defTextView.text = self.definition.definition;
-        //Example
-        self.examplesTextView.text = self.definition.example;
         
-        //Force textview to calculate its content
-        self.defTextView.sizeToFit()
-        self.examplesTextView.sizeToFit()
-        //Update constraints to adjust its frame
-        self.view.layoutIfNeeded()
-        //Tags
-        
-        //Definition number label
-        self.definitionNumberLabel.text = "Definition \(self.pageIndex + 1) / \(self.totalPages)"
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -69,18 +51,59 @@ class ResultsPageViewController: UIViewController {
             self.backgroundImageView.image = UIImage(CGImage: srcImage.CGImage, scale: srcImage.scale, orientation: UIImageOrientation.UpMirrored)
         }
         
-        if self.pageIndex == 0 {
-            self.backButton.hidden = false;
-        }
+        self.setUpPageInformation()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated);
         
+        self.backButton.hidden = false;
+        self.backButton.alpha = 0.0;
+        UIView.animateWithDuration(1.5, delay: 0.0, options: .CurveEaseOut, animations: {
+            self.backButton.alpha = 1.0;
+            }, completion:nil)
+    }
+    
+    func setUpPageInformation() {
+        //Set all the information
+        self.setUpRating();
+        //Word
+        self.wordLabel.text = self.definition.word;
+        //Definition
+        self.defTextView.text = self.definition.definition;
+        //Example
+        self.examplesTextView.text = self.definition.example;
+        
+        //Call it before using contentsize
+        self.view.layoutIfNeeded()
+        
+        //Force textview to calculate its content
+        self.defTextView.sizeToFit();
+        self.examplesTextView.sizeToFit();
+        
+        //Call it after to resize constraints
+        self.view.layoutIfNeeded()
+        
+        //Definition number label
+        self.definitionNumberLabel.text = "Definition \(self.pageIndex + 1) / \(self.totalPages)"
+        
+        //Tags
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
+            self.backButton.alpha = 0.0;
+            }, completion:{ finished in
+                self.backButton.hidden = true;
+        })
     }
     
     override func viewWillLayoutSubviews() {
         
         //Update the constraints for the text view so it sizes to its content
-        self.defTvHeightConstriant.constant = self.defTextView.contentSize.height;
-        println(self.defTextView.contentSize.height)
-        
+        self.defTvHeightConstriant.constant = self.defTextView.contentSize.height;        
         self.examplesTvHeightConstraint.constant = self.examplesTextView.contentSize.height;
     }
     

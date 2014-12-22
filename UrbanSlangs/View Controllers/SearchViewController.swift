@@ -34,12 +34,15 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tap)
         
+        //TSmessage vc
+        TSMessage.setDefaultViewController(self.navigationController);
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
         
         self.canPerformResultSegue = false;
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,7 +75,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 // update some UI
                 
                 //Hide the activity indicator
-                UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
+                UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: {
                     //WEIRD SHIT HAPPENS self.activityIndicator.alpha = 1.0
                     
                     }, completion: { finished in
@@ -87,14 +90,24 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                     //Go to the next screen to display results
                     self.canPerformResultSegue = true;
                     self.performSegueWithIdentifier(QUERY_RESULT_SEGUE_ID, sender:self.searchButton);
+                    
+                    if self.queryResult?.resultType != QueryConstants.QUERY_RESULT_TYPE_EXACT {
+                        //TSMessage - //If result wasnt exact, inform the user
+                        TSMessage.showNotificationWithTitle("Whooops :(", subtitle: "No results matched. But perhaps you might be interested in these!", type:TSMessageNotificationType.Warning);
+                    }
+                    
                 } else {
                     //Error!
                     if self.queryResult?.definitions?.count == 0 {
                         //No results
                         println("no results")
+                        //TSMessage
+                        TSMessage.showNotificationWithTitle("Whooops :(", subtitle: "No results matched your search", type:TSMessageNotificationType.Error);
                     } else {
                         //Error
                         println("error")
+                        //TSMessage
+                        TSMessage.showNotificationWithTitle("Connection failed", subtitle: "Check your internet connection!", type:TSMessageNotificationType.Error);
                     }
                     
                 }

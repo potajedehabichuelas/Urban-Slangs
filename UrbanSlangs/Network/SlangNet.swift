@@ -38,7 +38,11 @@ class SlangNet: NSObject {
         var requestResult : AnyObject? = HttpHelper.httpGetURL(BASE_URL, postPath:DEFINE_API.stringByAppendingString(wordString), parametersDict:dictParams);
     
         //Translate JSON object into Definition Objects
-        var queryResult : QueryResult = QueryResult.queryResultFromJSON(wordString, jsonDict: requestResult! as NSDictionary);
+        var queryResult : QueryResult?;
+        
+        if (requestResult != nil) {
+            queryResult = QueryResult.queryResultFromJSON(wordString, jsonDict: requestResult as NSDictionary);
+        }
     
         return queryResult;
     }

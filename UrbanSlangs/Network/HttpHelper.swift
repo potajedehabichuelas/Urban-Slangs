@@ -97,7 +97,7 @@ class HttpHelper: NSObject {
         //Wait for the completition of the request
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
         
-        return responseJSON!;
+        return responseJSON;
 
     }
 }

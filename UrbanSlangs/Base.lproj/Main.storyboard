@@ -94,7 +94,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search word.." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Op-lf-4HH">
                                 <rect key="frame" x="142" y="282" width="245" height="35"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.35294117650000001" green="0.80392156859999997" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="RgE-K3-Y7K"/>
                                     <constraint firstAttribute="width" constant="245" id="wVb-HZ-a2e">
@@ -102,13 +102,13 @@
                                     </constraint>
                                 </constraints>
                                 <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="search"/>
                                 <variation key="heightClass=compact">
-                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
                                 </variation>
                                 <variation key="widthClass=compact">
-                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="21"/>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="99" y="170" width="204" height="62"/>
@@ -244,18 +244,18 @@
                                 </variation>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry0-rP-mWU">
-                                <rect key="frame" x="0.0" y="20" width="56" height="39"/>
+                                <rect key="frame" x="0.0" y="20" width="82" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="E8I-id-75j"/>
-                                    <constraint firstAttribute="height" constant="39" id="qmq-NL-VQY"/>
+                                    <constraint firstAttribute="width" constant="82" id="E8I-id-75j"/>
+                                    <constraint firstAttribute="height" constant="43" id="qmq-NL-VQY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="22"/>
                                 </variation>
                                 <connections>
                                     <action selector="backToSearch:" destination="uu8-GG-Unn" eventType="touchUpInside" id="qYW-yJ-KVk"/>
@@ -401,7 +401,6 @@
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed" translatesAutoresizingMaskIntoConstraints="NO" id="cj2-dc-1Ll">
                                                 <rect key="frame" x="16" y="160" width="568" height="55"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="kzq-PD-kJ8"/>
                                                 </constraints>
@@ -422,13 +421,26 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Related" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqJ-eI-Wt0">
+                                                <rect key="frame" x="8" y="223" width="208" height="41"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="208" id="JIa-De-vJ6"/>
+                                                    <constraint firstAttribute="height" constant="41" id="gqr-QQ-DKI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="Cp7-7l-U92" firstAttribute="top" secondItem="9KU-Cg-hNF" secondAttribute="bottom" constant="8" id="4Qq-xG-UGq"/>
                                             <constraint firstAttribute="trailing" secondItem="cj2-dc-1Ll" secondAttribute="trailing" constant="16" id="6QC-Be-hgq"/>
                                             <constraint firstItem="yht-cZ-3rx" firstAttribute="top" secondItem="RYo-3c-TXP" secondAttribute="top" constant="20" id="9nC-iA-sQW"/>
+                                            <constraint firstAttribute="bottom" secondItem="kqJ-eI-Wt0" secondAttribute="bottom" constant="70" id="BXX-dI-mJl"/>
+                                            <constraint firstItem="kqJ-eI-Wt0" firstAttribute="leading" secondItem="RYo-3c-TXP" secondAttribute="leading" constant="8" id="BwR-KH-ZVz"/>
                                             <constraint firstAttribute="trailing" secondItem="9KU-Cg-hNF" secondAttribute="trailing" constant="16" id="E7I-Jf-xDD"/>
+                                            <constraint firstItem="kqJ-eI-Wt0" firstAttribute="top" secondItem="cj2-dc-1Ll" secondAttribute="bottom" constant="8" id="HLc-3r-eTs"/>
                                             <constraint firstItem="9KU-Cg-hNF" firstAttribute="leading" secondItem="RYo-3c-TXP" secondAttribute="leading" constant="16" id="KOx-jp-ugl"/>
                                             <constraint firstAttribute="bottom" secondItem="cj2-dc-1Ll" secondAttribute="bottom" constant="119" id="Nrj-W8-kVK"/>
                                             <constraint firstItem="yht-cZ-3rx" firstAttribute="leading" secondItem="RYo-3c-TXP" secondAttribute="leading" constant="8" id="XD2-Bo-Kog"/>
@@ -437,6 +449,11 @@
                                             <constraint firstItem="cj2-dc-1Ll" firstAttribute="leading" secondItem="RYo-3c-TXP" secondAttribute="leading" constant="16" id="rkE-cL-X2C"/>
                                             <constraint firstItem="Cp7-7l-U92" firstAttribute="leading" secondItem="RYo-3c-TXP" secondAttribute="leading" constant="8" id="yqf-5g-jx3"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Nrj-W8-kVK"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.88788455160000002" green="0.9460678522" blue="0.72770327160000003" alpha="1" colorSpace="calibratedRGB"/>

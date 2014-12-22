@@ -10,5 +10,6 @@
 #define Slang_Dictionary_bridge_h
 
 #import "AFNetworking.h"
+#import "TSMessage.h"
 
 #endif

@@ -39,6 +39,26 @@
 		486600921A46A79B00CD090B /* searchButtonDisabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 486600911A46A79B00CD090B /* searchButtonDisabled@2x.png */; };
 		486600971A46B30600CD090B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486600931A46B30600CD090B /* LaunchScreen.xib */; };
 		486600981A46B30600CD090B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 486600951A46B30600CD090B /* Main.storyboard */; };
+		48D9CE7D1A471A8C0001DDB2 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE5E1A471A8C0001DDB2 /* NotificationBackgroundError.png */; };
+		48D9CE7E1A471A8C0001DDB2 /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE5F1A471A8C0001DDB2 /* NotificationBackgroundError@2x.png */; };
+		48D9CE7F1A471A8C0001DDB2 /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE601A471A8C0001DDB2 /* NotificationBackgroundErrorIcon.png */; };
+		48D9CE801A471A8C0001DDB2 /* NotificationBackgroundErrorIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE611A471A8C0001DDB2 /* NotificationBackgroundErrorIcon@2x.png */; };
+		48D9CE811A471A8C0001DDB2 /* NotificationBackgroundMessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE621A471A8C0001DDB2 /* NotificationBackgroundMessage.png */; };
+		48D9CE821A471A8C0001DDB2 /* NotificationBackgroundMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE631A471A8C0001DDB2 /* NotificationBackgroundMessage@2x.png */; };
+		48D9CE831A471A8C0001DDB2 /* NotificationBackgroundSuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE641A471A8C0001DDB2 /* NotificationBackgroundSuccess.png */; };
+		48D9CE841A471A8C0001DDB2 /* NotificationBackgroundSuccess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE651A471A8C0001DDB2 /* NotificationBackgroundSuccess@2x.png */; };
+		48D9CE851A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE661A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon.png */; };
+		48D9CE861A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE671A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon@2x.png */; };
+		48D9CE871A471A8C0001DDB2 /* NotificationBackgroundWarning.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE681A471A8C0001DDB2 /* NotificationBackgroundWarning.png */; };
+		48D9CE881A471A8C0001DDB2 /* NotificationBackgroundWarning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE691A471A8C0001DDB2 /* NotificationBackgroundWarning@2x.png */; };
+		48D9CE891A471A8C0001DDB2 /* NotificationBackgroundWarningIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE6A1A471A8C0001DDB2 /* NotificationBackgroundWarningIcon.png */; };
+		48D9CE8A1A471A8C0001DDB2 /* NotificationBackgroundWarningIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE6B1A471A8C0001DDB2 /* NotificationBackgroundWarningIcon@2x.png */; };
+		48D9CE8B1A471A8C0001DDB2 /* NotificationButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE6C1A471A8C0001DDB2 /* NotificationButtonBackground.png */; };
+		48D9CE8C1A471A8C0001DDB2 /* NotificationButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE6D1A471A8C0001DDB2 /* NotificationButtonBackground@2x.png */; };
+		48D9CE8D1A471A8C0001DDB2 /* TSMessagesDefaultDesign.json in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE6E1A471A8C0001DDB2 /* TSMessagesDefaultDesign.json */; };
+		48D9CE901A471A8C0001DDB2 /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D9CE741A471A8C0001DDB2 /* TSMessage.m */; };
+		48D9CE911A471A8C0001DDB2 /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D9CE761A471A8C0001DDB2 /* TSMessageView.m */; };
+		48D9CE931A4844270001DDB2 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D9CE7B1A471A8C0001DDB2 /* HexColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +120,29 @@
 		486600941A46B30600CD090B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		486600961A46B30600CD090B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48BCFCA21A3FD0DA0089B684 /* SlangsPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlangsPrefixHeader.pch; sourceTree = "<group>"; };
+		48D9CE5E1A471A8C0001DDB2 /* NotificationBackgroundError.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundError.png; sourceTree = "<group>"; };
+		48D9CE5F1A471A8C0001DDB2 /* NotificationBackgroundError@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundError@2x.png"; sourceTree = "<group>"; };
+		48D9CE601A471A8C0001DDB2 /* NotificationBackgroundErrorIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundErrorIcon.png; sourceTree = "<group>"; };
+		48D9CE611A471A8C0001DDB2 /* NotificationBackgroundErrorIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundErrorIcon@2x.png"; sourceTree = "<group>"; };
+		48D9CE621A471A8C0001DDB2 /* NotificationBackgroundMessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundMessage.png; sourceTree = "<group>"; };
+		48D9CE631A471A8C0001DDB2 /* NotificationBackgroundMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundMessage@2x.png"; sourceTree = "<group>"; };
+		48D9CE641A471A8C0001DDB2 /* NotificationBackgroundSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccess.png; sourceTree = "<group>"; };
+		48D9CE651A471A8C0001DDB2 /* NotificationBackgroundSuccess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccess@2x.png"; sourceTree = "<group>"; };
+		48D9CE661A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundSuccessIcon.png; sourceTree = "<group>"; };
+		48D9CE671A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundSuccessIcon@2x.png"; sourceTree = "<group>"; };
+		48D9CE681A471A8C0001DDB2 /* NotificationBackgroundWarning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarning.png; sourceTree = "<group>"; };
+		48D9CE691A471A8C0001DDB2 /* NotificationBackgroundWarning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarning@2x.png"; sourceTree = "<group>"; };
+		48D9CE6A1A471A8C0001DDB2 /* NotificationBackgroundWarningIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationBackgroundWarningIcon.png; sourceTree = "<group>"; };
+		48D9CE6B1A471A8C0001DDB2 /* NotificationBackgroundWarningIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationBackgroundWarningIcon@2x.png"; sourceTree = "<group>"; };
+		48D9CE6C1A471A8C0001DDB2 /* NotificationButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NotificationButtonBackground.png; sourceTree = "<group>"; };
+		48D9CE6D1A471A8C0001DDB2 /* NotificationButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NotificationButtonBackground@2x.png"; sourceTree = "<group>"; };
+		48D9CE6E1A471A8C0001DDB2 /* TSMessagesDefaultDesign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TSMessagesDefaultDesign.json; sourceTree = "<group>"; };
+		48D9CE731A471A8C0001DDB2 /* TSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessage.h; sourceTree = "<group>"; };
+		48D9CE741A471A8C0001DDB2 /* TSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessage.m; sourceTree = "<group>"; };
+		48D9CE751A471A8C0001DDB2 /* TSMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMessageView.h; sourceTree = "<group>"; };
+		48D9CE761A471A8C0001DDB2 /* TSMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessageView.m; sourceTree = "<group>"; };
+		48D9CE7A1A471A8C0001DDB2 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
+		48D9CE7B1A471A8C0001DDB2 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +258,7 @@
 		485B40BA1A3FB220007052A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				48D9CE5A1A471A8C0001DDB2 /* TSMessages */,
 				485B40BB1A3FB220007052A6 /* AFNetworking */,
 			);
 			path = Frameworks;
@@ -277,6 +321,84 @@
 				486600831A440FA300CD090B /* ResultsManagerViewController.swift */,
 			);
 			path = Results;
+			sourceTree = "<group>";
+		};
+		48D9CE5A1A471A8C0001DDB2 /* TSMessages */ = {
+			isa = PBXGroup;
+			children = (
+				48D9CE5B1A471A8C0001DDB2 /* Pod */,
+				48D9CE771A471A8C0001DDB2 /* Submodules */,
+			);
+			path = TSMessages;
+			sourceTree = "<group>";
+		};
+		48D9CE5B1A471A8C0001DDB2 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				48D9CE5C1A471A8C0001DDB2 /* Assets */,
+				48D9CE6F1A471A8C0001DDB2 /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		48D9CE5C1A471A8C0001DDB2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				48D9CE5E1A471A8C0001DDB2 /* NotificationBackgroundError.png */,
+				48D9CE5F1A471A8C0001DDB2 /* NotificationBackgroundError@2x.png */,
+				48D9CE601A471A8C0001DDB2 /* NotificationBackgroundErrorIcon.png */,
+				48D9CE611A471A8C0001DDB2 /* NotificationBackgroundErrorIcon@2x.png */,
+				48D9CE621A471A8C0001DDB2 /* NotificationBackgroundMessage.png */,
+				48D9CE631A471A8C0001DDB2 /* NotificationBackgroundMessage@2x.png */,
+				48D9CE641A471A8C0001DDB2 /* NotificationBackgroundSuccess.png */,
+				48D9CE651A471A8C0001DDB2 /* NotificationBackgroundSuccess@2x.png */,
+				48D9CE661A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon.png */,
+				48D9CE671A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon@2x.png */,
+				48D9CE681A471A8C0001DDB2 /* NotificationBackgroundWarning.png */,
+				48D9CE691A471A8C0001DDB2 /* NotificationBackgroundWarning@2x.png */,
+				48D9CE6A1A471A8C0001DDB2 /* NotificationBackgroundWarningIcon.png */,
+				48D9CE6B1A471A8C0001DDB2 /* NotificationBackgroundWarningIcon@2x.png */,
+				48D9CE6C1A471A8C0001DDB2 /* NotificationButtonBackground.png */,
+				48D9CE6D1A471A8C0001DDB2 /* NotificationButtonBackground@2x.png */,
+				48D9CE6E1A471A8C0001DDB2 /* TSMessagesDefaultDesign.json */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		48D9CE6F1A471A8C0001DDB2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				48D9CE731A471A8C0001DDB2 /* TSMessage.h */,
+				48D9CE741A471A8C0001DDB2 /* TSMessage.m */,
+				48D9CE751A471A8C0001DDB2 /* TSMessageView.h */,
+				48D9CE761A471A8C0001DDB2 /* TSMessageView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		48D9CE771A471A8C0001DDB2 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				48D9CE781A471A8C0001DDB2 /* HexColors */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		48D9CE781A471A8C0001DDB2 /* HexColors */ = {
+			isa = PBXGroup;
+			children = (
+				48D9CE791A471A8C0001DDB2 /* Classes */,
+			);
+			path = HexColors;
+			sourceTree = "<group>";
+		};
+		48D9CE791A471A8C0001DDB2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				48D9CE7A1A471A8C0001DDB2 /* HexColor.h */,
+				48D9CE7B1A471A8C0001DDB2 /* HexColor.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,19 +482,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48D9CE7E1A471A8C0001DDB2 /* NotificationBackgroundError@2x.png in Resources */,
 				4866008E1A46A09900CD090B /* search@2x.png in Resources */,
+				48D9CE8D1A471A8C0001DDB2 /* TSMessagesDefaultDesign.json in Resources */,
 				4866008A1A46853A00CD090B /* halfStar@2x.png in Resources */,
+				48D9CE891A471A8C0001DDB2 /* NotificationBackgroundWarningIcon.png in Resources */,
 				486600871A46838900CD090B /* fullStar@2x.png in Resources */,
+				48D9CE8C1A471A8C0001DDB2 /* NotificationButtonBackground@2x.png in Resources */,
 				4866007F1A42C32200CD090B /* searchButton@2x.png in Resources */,
+				48D9CE7F1A471A8C0001DDB2 /* NotificationBackgroundErrorIcon.png in Resources */,
+				48D9CE831A471A8C0001DDB2 /* NotificationBackgroundSuccess.png in Resources */,
 				486600971A46B30600CD090B /* LaunchScreen.xib in Resources */,
+				48D9CE881A471A8C0001DDB2 /* NotificationBackgroundWarning@2x.png in Resources */,
 				485B40D91A3FCE01007052A6 /* Default-568h@2x.png in Resources */,
 				486600921A46A79B00CD090B /* searchButtonDisabled@2x.png in Resources */,
+				48D9CE871A471A8C0001DDB2 /* NotificationBackgroundWarning.png in Resources */,
+				48D9CE801A471A8C0001DDB2 /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				486600981A46B30600CD090B /* Main.storyboard in Resources */,
+				48D9CE851A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon.png in Resources */,
 				486600901A46A55F00CD090B /* searchButtonTest@2x.png in Resources */,
+				48D9CE861A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon@2x.png in Resources */,
+				48D9CE841A471A8C0001DDB2 /* NotificationBackgroundSuccess@2x.png in Resources */,
 				4866007E1A42C32200CD090B /* searchBarContainer@2x.png in Resources */,
+				48D9CE821A471A8C0001DDB2 /* NotificationBackgroundMessage@2x.png in Resources */,
 				480D0D8F1A3B175400BE323B /* Images.xcassets in Resources */,
 				4866007B1A42BD9300CD090B /* searchBg@2x.jpg in Resources */,
+				48D9CE8B1A471A8C0001DDB2 /* NotificationButtonBackground.png in Resources */,
+				48D9CE8A1A471A8C0001DDB2 /* NotificationBackgroundWarningIcon@2x.png in Resources */,
+				48D9CE7D1A471A8C0001DDB2 /* NotificationBackgroundError.png in Resources */,
 				486600881A46838900CD090B /* noStar@2x.png in Resources */,
+				48D9CE811A471A8C0001DDB2 /* NotificationBackgroundMessage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,9 +535,12 @@
 				485B40D31A3FB220007052A6 /* AFSecurityPolicy.m in Sources */,
 				4805C7641A4177C500E293C9 /* Definition.swift in Sources */,
 				485B40B61A3FA953007052A6 /* SearchViewController.swift in Sources */,
+				48D9CE911A471A8C0001DDB2 /* TSMessageView.m in Sources */,
 				485B40D01A3FB220007052A6 /* AFHTTPRequestOperationManager.m in Sources */,
+				48D9CE931A4844270001DDB2 /* HexColor.m in Sources */,
 				485B40D41A3FB220007052A6 /* AFURLConnectionOperation.m in Sources */,
 				486600821A440F6000CD090B /* ResultsPageViewController.swift in Sources */,
+				48D9CE901A471A8C0001DDB2 /* TSMessage.m in Sources */,
 				485B40CF1A3FB220007052A6 /* AFHTTPRequestOperation.m in Sources */,
 				480D0D881A3B175400BE323B /* Slang_Dictionary.xcdatamodeld in Sources */,
 				485B40D51A3FB220007052A6 /* AFURLRequestSerialization.m in Sources */,

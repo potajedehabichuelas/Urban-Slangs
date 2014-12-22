@@ -13,6 +13,13 @@ private let WORD_LIST_KEY : String = "list";
 private let WORD_SOUNDS_KEY : String = "sounds";
 private let WORD_RESULT_TYPE_KEY : String = "result_type";
 
+//dafuq this shit is not supported yet :(
+//public let QUERY_RESULT_TYPE_EXACT : String = "exact"
+//Instead
+struct QueryConstants {
+    static let QUERY_RESULT_TYPE_EXACT : String = "exact"
+}
+
 class QueryResult: NSObject {
     
     var searchString : String = "";
