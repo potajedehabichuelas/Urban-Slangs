@@ -14,6 +14,9 @@
 		480D0D881A3B175400BE323B /* Slang_Dictionary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 480D0D861A3B175400BE323B /* Slang_Dictionary.xcdatamodeld */; };
 		480D0D8F1A3B175400BE323B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 480D0D8E1A3B175400BE323B /* Images.xcassets */; };
 		480D0D9E1A3B175400BE323B /* Slang_DictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D0D9D1A3B175400BE323B /* Slang_DictionaryTests.swift */; };
+		4841AA4D1A4E47EC000518E5 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4841AA4B1A4E47EC000518E5 /* libGoogleAdMobAds.a */; };
+		4841AA4E1A4E47EC000518E5 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4841AA4C1A4E47EC000518E5 /* README.txt */; };
+		4841AA501A4E8BF3000518E5 /* AdMobHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4841AA4F1A4E8BF3000518E5 /* AdMobHelper.swift */; };
 		485B40B61A3FA953007052A6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B40B51A3FA953007052A6 /* SearchViewController.swift */; };
 		485B40B81A3FA989007052A6 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B40B71A3FA989007052A6 /* HttpHelper.swift */; };
 		485B40CF1A3FB220007052A6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 485B40BD1A3FB220007052A6 /* AFHTTPRequestOperation.m */; };
@@ -59,6 +62,7 @@
 		48D9CE901A471A8C0001DDB2 /* TSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D9CE741A471A8C0001DDB2 /* TSMessage.m */; };
 		48D9CE911A471A8C0001DDB2 /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D9CE761A471A8C0001DDB2 /* TSMessageView.m */; };
 		48D9CE931A4844270001DDB2 /* HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D9CE7B1A471A8C0001DDB2 /* HexColor.m */; };
+		48D9CE9B1A4908BF0001DDB2 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 48D9CE981A4908BF0001DDB2 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +87,36 @@
 		480D0D971A3B175400BE323B /* Urban SlangsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Urban SlangsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		480D0D9C1A3B175400BE323B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		480D0D9D1A3B175400BE323B /* Slang_DictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slang_DictionaryTests.swift; sourceTree = "<group>"; };
+		4841AA2E1A4E47EC000518E5 /* DFPBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPBannerView.h; sourceTree = "<group>"; };
+		4841AA2F1A4E47EC000518E5 /* DFPExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPExtras.h; sourceTree = "<group>"; };
+		4841AA301A4E47EC000518E5 /* DFPInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPInterstitial.h; sourceTree = "<group>"; };
+		4841AA311A4E47EC000518E5 /* DFPSwipeableBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPSwipeableBannerView.h; sourceTree = "<group>"; };
+		4841AA321A4E47EC000518E5 /* GADAdSizeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSizeDelegate.h; sourceTree = "<group>"; };
+		4841AA331A4E47EC000518E5 /* GADAppEventDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAppEventDelegate.h; sourceTree = "<group>"; };
+		4841AA341A4E47EC000518E5 /* GADSwipeableBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSwipeableBannerViewDelegate.h; sourceTree = "<group>"; };
+		4841AA361A4E47EC000518E5 /* GADCustomEventBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADCustomEventBanner.h; sourceTree = "<group>"; };
+		4841AA371A4E47EC000518E5 /* GADCustomEventBannerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADCustomEventBannerDelegate.h; sourceTree = "<group>"; };
+		4841AA381A4E47EC000518E5 /* GADCustomEventExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADCustomEventExtras.h; sourceTree = "<group>"; };
+		4841AA391A4E47EC000518E5 /* GADCustomEventInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADCustomEventInterstitial.h; sourceTree = "<group>"; };
+		4841AA3A1A4E47EC000518E5 /* GADCustomEventInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADCustomEventInterstitialDelegate.h; sourceTree = "<group>"; };
+		4841AA3B1A4E47EC000518E5 /* GADCustomEventRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADCustomEventRequest.h; sourceTree = "<group>"; };
+		4841AA3D1A4E47EC000518E5 /* GADSearchBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSearchBannerView.h; sourceTree = "<group>"; };
+		4841AA3E1A4E47EC000518E5 /* GADSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADSearchRequest.h; sourceTree = "<group>"; };
+		4841AA3F1A4E47EC000518E5 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		4841AA401A4E47EC000518E5 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		4841AA411A4E47EC000518E5 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		4841AA421A4E47EC000518E5 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		4841AA431A4E47EC000518E5 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		4841AA441A4E47EC000518E5 /* GADInAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchase.h; sourceTree = "<group>"; };
+		4841AA451A4E47EC000518E5 /* GADInAppPurchaseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchaseDelegate.h; sourceTree = "<group>"; };
+		4841AA461A4E47EC000518E5 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		4841AA471A4E47EC000518E5 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		4841AA481A4E47EC000518E5 /* GADModules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADModules.h; sourceTree = "<group>"; };
+		4841AA491A4E47EC000518E5 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		4841AA4A1A4E47EC000518E5 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		4841AA4B1A4E47EC000518E5 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		4841AA4C1A4E47EC000518E5 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		4841AA4F1A4E8BF3000518E5 /* AdMobHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobHelper.swift; sourceTree = "<group>"; };
 		485B40B51A3FA953007052A6 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		485B40B71A3FA989007052A6 /* HttpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
 		485B40B91A3FB1AB007052A6 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -143,6 +177,8 @@
 		48D9CE761A471A8C0001DDB2 /* TSMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMessageView.m; sourceTree = "<group>"; };
 		48D9CE7A1A471A8C0001DDB2 /* HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexColor.h; sourceTree = "<group>"; };
 		48D9CE7B1A471A8C0001DDB2 /* HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexColor.m; sourceTree = "<group>"; };
+		48D9CE971A4908BF0001DDB2 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		48D9CE981A4908BF0001DDB2 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4841AA4D1A4E47EC000518E5 /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +205,7 @@
 			children = (
 				4805C7631A4177C500E293C9 /* Definition.swift */,
 				4805C7651A418FD800E293C9 /* QueryResult.swift */,
+				4841AA4F1A4E8BF3000518E5 /* AdMobHelper.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -237,6 +275,74 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4841AA2B1A4E47EC000518E5 /* GoogleMobileAdsSdkiOS-6.12.2 */ = {
+			isa = PBXGroup;
+			children = (
+				4841AA2C1A4E47EC000518E5 /* Add-ons */,
+				4841AA3F1A4E47EC000518E5 /* GADAdMobExtras.h */,
+				4841AA401A4E47EC000518E5 /* GADAdNetworkExtras.h */,
+				4841AA411A4E47EC000518E5 /* GADAdSize.h */,
+				4841AA421A4E47EC000518E5 /* GADBannerView.h */,
+				4841AA431A4E47EC000518E5 /* GADBannerViewDelegate.h */,
+				4841AA441A4E47EC000518E5 /* GADInAppPurchase.h */,
+				4841AA451A4E47EC000518E5 /* GADInAppPurchaseDelegate.h */,
+				4841AA461A4E47EC000518E5 /* GADInterstitial.h */,
+				4841AA471A4E47EC000518E5 /* GADInterstitialDelegate.h */,
+				4841AA481A4E47EC000518E5 /* GADModules.h */,
+				4841AA491A4E47EC000518E5 /* GADRequest.h */,
+				4841AA4A1A4E47EC000518E5 /* GADRequestError.h */,
+				4841AA4B1A4E47EC000518E5 /* libGoogleAdMobAds.a */,
+				4841AA4C1A4E47EC000518E5 /* README.txt */,
+			);
+			path = "GoogleMobileAdsSdkiOS-6.12.2";
+			sourceTree = "<group>";
+		};
+		4841AA2C1A4E47EC000518E5 /* Add-ons */ = {
+			isa = PBXGroup;
+			children = (
+				4841AA2D1A4E47EC000518E5 /* DoubleClick */,
+				4841AA351A4E47EC000518E5 /* Mediation */,
+				4841AA3C1A4E47EC000518E5 /* Search */,
+			);
+			path = "Add-ons";
+			sourceTree = "<group>";
+		};
+		4841AA2D1A4E47EC000518E5 /* DoubleClick */ = {
+			isa = PBXGroup;
+			children = (
+				4841AA2E1A4E47EC000518E5 /* DFPBannerView.h */,
+				4841AA2F1A4E47EC000518E5 /* DFPExtras.h */,
+				4841AA301A4E47EC000518E5 /* DFPInterstitial.h */,
+				4841AA311A4E47EC000518E5 /* DFPSwipeableBannerView.h */,
+				4841AA321A4E47EC000518E5 /* GADAdSizeDelegate.h */,
+				4841AA331A4E47EC000518E5 /* GADAppEventDelegate.h */,
+				4841AA341A4E47EC000518E5 /* GADSwipeableBannerViewDelegate.h */,
+			);
+			path = DoubleClick;
+			sourceTree = "<group>";
+		};
+		4841AA351A4E47EC000518E5 /* Mediation */ = {
+			isa = PBXGroup;
+			children = (
+				4841AA361A4E47EC000518E5 /* GADCustomEventBanner.h */,
+				4841AA371A4E47EC000518E5 /* GADCustomEventBannerDelegate.h */,
+				4841AA381A4E47EC000518E5 /* GADCustomEventExtras.h */,
+				4841AA391A4E47EC000518E5 /* GADCustomEventInterstitial.h */,
+				4841AA3A1A4E47EC000518E5 /* GADCustomEventInterstitialDelegate.h */,
+				4841AA3B1A4E47EC000518E5 /* GADCustomEventRequest.h */,
+			);
+			path = Mediation;
+			sourceTree = "<group>";
+		};
+		4841AA3C1A4E47EC000518E5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4841AA3D1A4E47EC000518E5 /* GADSearchBannerView.h */,
+				4841AA3E1A4E47EC000518E5 /* GADSearchRequest.h */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		485B40B31A3FA953007052A6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +364,8 @@
 		485B40BA1A3FB220007052A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4841AA2B1A4E47EC000518E5 /* GoogleMobileAdsSdkiOS-6.12.2 */,
+				48D9CE941A4908BF0001DDB2 /* MBProgressHUD */,
 				48D9CE5A1A471A8C0001DDB2 /* TSMessages */,
 				485B40BB1A3FB220007052A6 /* AFNetworking */,
 			);
@@ -401,6 +509,15 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		48D9CE941A4908BF0001DDB2 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				48D9CE971A4908BF0001DDB2 /* MBProgressHUD.h */,
+				48D9CE981A4908BF0001DDB2 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -502,6 +619,7 @@
 				48D9CE851A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon.png in Resources */,
 				486600901A46A55F00CD090B /* searchButtonTest@2x.png in Resources */,
 				48D9CE861A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon@2x.png in Resources */,
+				4841AA4E1A4E47EC000518E5 /* README.txt in Resources */,
 				48D9CE841A471A8C0001DDB2 /* NotificationBackgroundSuccess@2x.png in Resources */,
 				4866007E1A42C32200CD090B /* searchBarContainer@2x.png in Resources */,
 				48D9CE821A471A8C0001DDB2 /* NotificationBackgroundMessage@2x.png in Resources */,
@@ -529,6 +647,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4841AA501A4E8BF3000518E5 /* AdMobHelper.swift in Sources */,
 				480D0D851A3B175400BE323B /* AppDelegate.swift in Sources */,
 				4805C7661A418FD800E293C9 /* QueryResult.swift in Sources */,
 				486600841A440FA300CD090B /* ResultsManagerViewController.swift in Sources */,
@@ -544,6 +663,7 @@
 				485B40CF1A3FB220007052A6 /* AFHTTPRequestOperation.m in Sources */,
 				480D0D881A3B175400BE323B /* Slang_Dictionary.xcdatamodeld in Sources */,
 				485B40D51A3FB220007052A6 /* AFURLRequestSerialization.m in Sources */,
+				48D9CE9B1A4908BF0001DDB2 /* MBProgressHUD.m in Sources */,
 				485B40D11A3FB220007052A6 /* AFHTTPSessionManager.m in Sources */,
 				4805C7611A41756100E293C9 /* SlangNet.swift in Sources */,
 				485B40D21A3FB220007052A6 /* AFNetworkReachabilityManager.m in Sources */,
@@ -689,6 +809,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/UrbanSlangs/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/GoogleMobileAdsSdkiOS-6.12.2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Urban Slangs";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/UrbanSlangs/Bridging-Header.h";
 			};
@@ -705,6 +830,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/UrbanSlangs/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/GoogleMobileAdsSdkiOS-6.12.2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Urban Slangs";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/UrbanSlangs/Bridging-Header.h";
 			};

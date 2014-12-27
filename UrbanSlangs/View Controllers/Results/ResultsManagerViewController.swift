@@ -72,6 +72,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         resultVc.pageIndex = index;
         resultVc.totalPages = results.definitions!.count;
         resultVc.definition = self.results.definitions![index];
+        resultVc.relatedTagsArray = self.results.tags!;
         
         return resultVc;
     }

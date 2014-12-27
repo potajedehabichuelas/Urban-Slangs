@@ -8,15 +8,21 @@
 
 import UIKit
 
-private let QUERY_RESULT_SEGUE_ID : String = "QueryResultSegue";
+struct SeguesID {
+    static let QUERY_RESULT_SEGUE_ID : String = "QueryResultSegue"
+}
+
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
-
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
+    
+    @IBOutlet weak var bannerView: GADBannerView!
+    
+    var fullScreenAd : GADInterstitial = GADInterstitial();
     
     var queryResult : QueryResult?;
     
@@ -36,6 +42,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         //TSmessage vc
         TSMessage.setDefaultViewController(self.navigationController);
+        
+        //Admob thing
+        self.bannerView.adUnitID = "ca-app-pub-7267181828972563/6462911130"
+        self.bannerView.rootViewController = self;
+        var request:GADRequest = GADRequest()
+        self.bannerView.loadRequest(request)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,13 +55,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         self.canPerformResultSegue = false;
         
+        //Recreate full screen ad (object can be used only once)
+        self.fullScreenAd = AdMobHelper.createAndLoadFullScreenAd();
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func searchString(sender: AnyObject) {
         
         //Search for the introduced string
@@ -75,13 +90,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 // update some UI
                 
                 //Hide the activity indicator
-                UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: {
-                    //WEIRD SHIT HAPPENS self.activityIndicator.alpha = 1.0
+                UIView.animateWithDuration(0.1, delay: 0.0, options: .CurveEaseOut, animations: {
                     
                     }, completion: { finished in
                         self.activityIndicator.hidden = true;
                         //Re enable the button
                         self.searchButton.enabled = true;
+                        self.dismissKeyboard()
                 })
                 
                 println("Request completed");
@@ -89,7 +104,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                     self.searchTextField.text = "";
                     //Go to the next screen to display results
                     self.canPerformResultSegue = true;
-                    self.performSegueWithIdentifier(QUERY_RESULT_SEGUE_ID, sender:self.searchButton);
+                    
+                    self.performSegueWithIdentifier(SeguesID.QUERY_RESULT_SEGUE_ID, sender:self.searchButton);
+                    
+                    //Show ad and after that perform segue
+                    self.fullScreenAd.presentFromRootViewController(self.navigationController);
                     
                     if self.queryResult?.resultType != QueryConstants.QUERY_RESULT_TYPE_EXACT {
                         //TSMessage - //If result wasnt exact, inform the user
@@ -195,7 +214,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
 
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        if (identifier == QUERY_RESULT_SEGUE_ID && self.canPerformResultSegue) {
+        if (identifier == SeguesID.QUERY_RESULT_SEGUE_ID && self.canPerformResultSegue) {
             self.canPerformResultSegue = false;
             return true;
         } else {

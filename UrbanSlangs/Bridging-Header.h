@@ -11,5 +11,11 @@
 
 #import "AFNetworking.h"
 #import "TSMessage.h"
+#import "MBProgressHUD.h"
+
+#import "GADBannerView.h"
+#import "GADBannerView.h"
+#import "GADRequest.h"
+#import "GADInterstitial.h"
 
 #endif
