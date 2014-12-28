@@ -76,7 +76,7 @@ class ResultsPageViewController: UIViewController {
         
         self.backButton.hidden = false;
         self.backButton.alpha = 0.0;
-        UIView.animateWithDuration(1.0, delay: 0.0, options: .CurveEaseOut, animations: {
+        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
             self.backButton.alpha = 1.0;
             }, completion:nil)
     }
