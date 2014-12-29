@@ -18,4 +18,6 @@
 #import "GADRequest.h"
 #import "GADInterstitial.h"
 
+#import "SWRevealViewController.h"
+
 #endif

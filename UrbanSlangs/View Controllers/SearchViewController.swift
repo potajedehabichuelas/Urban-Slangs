@@ -48,6 +48,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         self.bannerView.rootViewController = self;
         var request:GADRequest = GADRequest()
         self.bannerView.loadRequest(request)
+        
+        //SWRevealVc
+        self.revealViewController().toggleAnimationDuration = 0.8;
+        self.revealViewController().bounceBackOnOverdraw = true;
+        self.revealViewController().bounceBackOnLeftOverdraw = true;
+        
+        /*if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+            self.revealViewController.rightViewRevealOverdraw = 0;
+            self.revealViewController.rightViewRevealWidth = self.view.frame.size.width * 0.45;
+        }*/
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -63,6 +74,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func settingsClicked(sender: AnyObject) {
+        self.revealViewController().revealToggleAnimated(true);
+        self.view.endEditing(true);
     }
     
     @IBAction func searchString(sender: AnyObject) {

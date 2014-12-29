@@ -17,6 +17,9 @@
 		4841AA4D1A4E47EC000518E5 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4841AA4B1A4E47EC000518E5 /* libGoogleAdMobAds.a */; };
 		4841AA4E1A4E47EC000518E5 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4841AA4C1A4E47EC000518E5 /* README.txt */; };
 		4841AA501A4E8BF3000518E5 /* AdMobHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4841AA4F1A4E8BF3000518E5 /* AdMobHelper.swift */; };
+		4841AA531A5148FA000518E5 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4841AA521A5148FA000518E5 /* settings@2x.png */; };
+		4841AA691A5152A6000518E5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4841AA681A5152A5000518E5 /* SideMenuViewController.swift */; };
+		4841AA811A516F36000518E5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4841AA801A516F36000518E5 /* SWRevealViewController.m */; };
 		485B40B61A3FA953007052A6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B40B51A3FA953007052A6 /* SearchViewController.swift */; };
 		485B40B81A3FA989007052A6 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B40B71A3FA989007052A6 /* HttpHelper.swift */; };
 		485B40CF1A3FB220007052A6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 485B40BD1A3FB220007052A6 /* AFHTTPRequestOperation.m */; };
@@ -116,6 +119,10 @@
 		4841AA4B1A4E47EC000518E5 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		4841AA4C1A4E47EC000518E5 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4841AA4F1A4E8BF3000518E5 /* AdMobHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdMobHelper.swift; sourceTree = "<group>"; };
+		4841AA521A5148FA000518E5 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		4841AA681A5152A5000518E5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		4841AA7F1A516F36000518E5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		4841AA801A516F36000518E5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		485B40B51A3FA953007052A6 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		485B40B71A3FA989007052A6 /* HttpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
 		485B40B91A3FB1AB007052A6 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -340,6 +347,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		4841AA7E1A516F36000518E5 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4841AA7F1A516F36000518E5 /* SWRevealViewController.h */,
+				4841AA801A516F36000518E5 /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		485B40B31A3FA953007052A6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +370,7 @@
 			children = (
 				485B40B51A3FA953007052A6 /* SearchViewController.swift */,
 				486600801A440F6000CD090B /* Results */,
+				4841AA681A5152A5000518E5 /* SideMenuViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -361,6 +378,7 @@
 		485B40BA1A3FB220007052A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4841AA7E1A516F36000518E5 /* SWRevealViewController */,
 				4841AA2B1A4E47EC000518E5 /* GoogleMobileAdsSdkiOS-6.12.2 */,
 				48D9CE941A4908BF0001DDB2 /* MBProgressHUD */,
 				48D9CE5A1A471A8C0001DDB2 /* TSMessages */,
@@ -406,6 +424,7 @@
 		486600791A42BD9300CD090B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4841AA521A5148FA000518E5 /* settings@2x.png */,
 				486600911A46A79B00CD090B /* searchButtonDisabled@2x.png */,
 				4866008F1A46A55F00CD090B /* searchButtonTest@2x.png */,
 				4866008D1A46A09900CD090B /* search@2x.png */,
@@ -596,6 +615,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4841AA531A5148FA000518E5 /* settings@2x.png in Resources */,
 				48D9CE7E1A471A8C0001DDB2 /* NotificationBackgroundError@2x.png in Resources */,
 				4866008E1A46A09900CD090B /* search@2x.png in Resources */,
 				48D9CE8D1A471A8C0001DDB2 /* TSMessagesDefaultDesign.json in Resources */,
@@ -655,6 +675,7 @@
 				48D9CE931A4844270001DDB2 /* HexColor.m in Sources */,
 				485B40D41A3FB220007052A6 /* AFURLConnectionOperation.m in Sources */,
 				486600821A440F6000CD090B /* ResultsPageViewController.swift in Sources */,
+				4841AA811A516F36000518E5 /* SWRevealViewController.m in Sources */,
 				48D9CE901A471A8C0001DDB2 /* TSMessage.m in Sources */,
 				485B40CF1A3FB220007052A6 /* AFHTTPRequestOperation.m in Sources */,
 				480D0D881A3B175400BE323B /* Slang_Dictionary.xcdatamodeld in Sources */,
@@ -665,6 +686,7 @@
 				485B40D21A3FB220007052A6 /* AFNetworkReachabilityManager.m in Sources */,
 				485B40D61A3FB220007052A6 /* AFURLResponseSerialization.m in Sources */,
 				485B40D71A3FB220007052A6 /* AFURLSessionManager.m in Sources */,
+				4841AA691A5152A6000518E5 /* SideMenuViewController.swift in Sources */,
 				485B40B81A3FA989007052A6 /* HttpHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
