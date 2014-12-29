@@ -209,10 +209,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNB-xk-KCu">
-                                <rect key="frame" x="20" y="20" width="25" height="25"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="0ex-hc-2Qz"/>
-                                    <constraint firstAttribute="width" constant="25" id="KFw-1N-1bC"/>
+                                    <constraint firstAttribute="height" constant="50" id="0ex-hc-2Qz"/>
+                                    <constraint firstAttribute="width" constant="50" id="KFw-1N-1bC"/>
                                 </constraints>
                                 <state key="normal" image="settings.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -248,8 +248,8 @@
                             <constraint firstItem="VdD-Tr-415" firstAttribute="centerX" secondItem="0tJ-yR-rHG" secondAttribute="centerX" constant="0.5" id="B9O-JB-ntZ"/>
                             <constraint firstItem="0tJ-yR-rHG" firstAttribute="centerY" secondItem="i4G-9y-RcC" secondAttribute="centerY" constant="0.5" id="EFm-HE-fJo"/>
                             <constraint firstAttribute="trailing" secondItem="FeB-Y9-3UF" secondAttribute="trailing" id="GaW-oy-6E6"/>
-                            <constraint firstItem="xNB-xk-KCu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="Gqa-do-cMP">
-                                <variation key="widthClass=compact" constant="10"/>
+                            <constraint firstItem="xNB-xk-KCu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Gqa-do-cMP">
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="0tJ-yR-rHG" firstAttribute="centerX" secondItem="i4G-9y-RcC" secondAttribute="centerX" constant="136" id="K9R-lb-ynQ">
                                 <variation key="widthClass=compact" constant="110"/>
@@ -277,8 +277,8 @@
                             <constraint firstItem="EF9-g8-cnl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="he2-Bk-KlF">
                                 <variation key="heightClass=compact" constant="40"/>
                             </constraint>
-                            <constraint firstItem="xNB-xk-KCu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="pDg-d1-Q7O">
-                                <variation key="widthClass=compact" constant="10"/>
+                            <constraint firstItem="xNB-xk-KCu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pDg-d1-Q7O">
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="centerX" secondItem="EF9-g8-cnl" secondAttribute="centerX" id="ui0-N4-ydD"/>
                             <constraint firstItem="FeB-Y9-3UF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="v3B-fa-Tmf"/>
@@ -667,24 +667,6 @@
             </objects>
             <point key="canvasLocation" x="1896" y="460"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="nPm-hc-C7m">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="sv4-Us-yZr" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="V7f-Yw-e95"/>
-                        <viewControllerLayoutGuide type="bottom" id="QD5-nD-UBy"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KkK-BX-zEu">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kyp-wg-5BW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="noStar.png" width="16" height="17"/>
@@ -693,6 +675,6 @@
         <image name="searchBg.jpg" width="1024" height="768"/>
         <image name="searchButton.png" width="141" height="143"/>
         <image name="searchButtonDisabled.png" width="55" height="55"/>
-        <image name="settings.png" width="256" height="256"/>
+        <image name="settings.png" width="512" height="512"/>
     </resources>
 </document>
