@@ -721,6 +721,6 @@
         <image name="searchBg.jpg" width="1024" height="768"/>
         <image name="searchButton.png" width="141" height="143"/>
         <image name="searchButtonDisabled.png" width="55" height="55"/>
-        <image name="settings.png" width="512" height="512"/>
+        <image name="settings.png" width="64" height="64"/>
     </resources>
 </document>
