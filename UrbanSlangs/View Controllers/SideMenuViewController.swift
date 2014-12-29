@@ -9,11 +9,30 @@
 import UIKit
 
 class SideMenuViewController: UIViewController {
+    
+    @IBOutlet weak var imageViewBg: UIImageView!
+    
+    @IBOutlet weak var removeAdsButton: UIButton!
 
+    @IBOutlet weak var blurView: UIView!
+    
+    var effectView:UIVisualEffectView = UIVisualEffectView();
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Blur effect for the imagev background
+        let blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        self.effectView = UIVisualEffectView (effect: blur);
+        self.effectView.frame = self.view.frame
+        if (self.imageViewBg != nil) {
+            self.view.insertSubview(effectView, aboveSubview: self.imageViewBg)
+        }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        //Update effect frame
+        self.effectView.frame = self.view.frame
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +40,9 @@ class SideMenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func removeAds(sender: AnyObject) {
+        
+    }
 
     /*
     // MARK: - Navigation

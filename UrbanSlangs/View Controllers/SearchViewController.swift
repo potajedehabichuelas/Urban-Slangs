@@ -54,11 +54,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         self.revealViewController().bounceBackOnOverdraw = true;
         self.revealViewController().bounceBackOnLeftOverdraw = true;
         
-        /*if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
-            self.revealViewController.rightViewRevealOverdraw = 0;
-            self.revealViewController.rightViewRevealWidth = self.view.frame.size.width * 0.45;
-        }*/
+        //Gesture recognizers
+        var swipeRight = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
+        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        self.view.addGestureRecognizer(swipeLeft)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -74,6 +77,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func gestureResponder(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            self.settingsClicked(swipeGesture);
+        }
     }
     
     @IBAction func settingsClicked(sender: AnyObject) {
