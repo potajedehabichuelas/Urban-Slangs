@@ -42,9 +42,11 @@ class QueryResult: NSObject {
         //First Dict has 4 Keys :
         
         // tags
-        for tag in jsonDict[WORD_TAGS_KEY] as NSArray {
-            //Add the tags to the array
-            qresult.tags?.append(tag as String);
+        if ((jsonDict[WORD_TAGS_KEY]) != nil) {
+            for tag in jsonDict[WORD_TAGS_KEY] as NSArray {
+                //Add the tags to the array
+                qresult.tags?.append(tag as String);
+            }
         }
         
         // sounds
@@ -61,7 +63,9 @@ class QueryResult: NSObject {
         }
         
         // result_type
-        qresult.resultType = jsonDict[WORD_RESULT_TYPE_KEY] as String;
+        if (jsonDict[WORD_RESULT_TYPE_KEY] != nil) {
+            qresult.resultType = jsonDict[WORD_RESULT_TYPE_KEY] as String;
+        }
         
         return qresult;
     }

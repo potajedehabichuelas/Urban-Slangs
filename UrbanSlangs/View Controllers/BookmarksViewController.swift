@@ -1,30 +1,28 @@
 //
-//  SideMenuViewController.swift
+//  BookmarksViewController.swift
 //  Urban Slangs
 //
-//  Created by Daniel Bolivar herrera on 29/12/2014.
-//  Copyright (c) 2014 Xquare. All rights reserved.
+//  Created by Daniel Bolivar herrera on 11/01/2015.
+//  Copyright (c) 2015 Xquare. All rights reserved.
 //
 
 import UIKit
 
-class SideMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+class BookmarksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
     @IBOutlet weak var imageViewBg: UIImageView!
     
-    @IBOutlet weak var removeAdsButton: UIButton!
-
     @IBOutlet weak var blurView: UIView!
     
-    @IBOutlet weak var historyTableView: UITableView!
+    @IBOutlet weak var bookmarksTableView: UITableView!
     
-    var historyArray : Array <Definition> = Array();
+    var bookmarksArray : Array <Definition> = Array();
     
     var effectView:UIVisualEffectView = UIVisualEffectView();
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //Blur effect for the imagev background
         let blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
         self.effectView = UIVisualEffectView (effect: blur);
@@ -34,55 +32,42 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated);
-        
-        //Reload data
-        self.historyArray = Storage.getHistoryArray()
-        
-        if (self.historyTableView != nil) {
-            self.historyTableView.reloadData();
-            //Scrollable only if contents biggah
-            if self.historyTableView.contentSize.height < self.historyTableView.frame.size.height {
-                self.historyTableView.scrollEnabled = false;
-            } else {
-                self.historyTableView.scrollEnabled = true;
-            }
-        }
-    }
-    
     override func viewWillLayoutSubviews() {
         //Update effect frame
         self.effectView.frame = self.view.frame
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func removeAds(sender: AnyObject) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
         
-    }
-
-    @IBAction func trashHistory(sender: AnyObject) {
-        self.historyArray = Array();
-        Storage.saveHistoryArray(self.historyArray)
-        ;
-        var indexSet : NSIndexSet = NSIndexSet(indexesInRange: NSRange(location: 0, length:self.historyTableView.numberOfSections()))
-        self.historyTableView.deleteSections(indexSet, withRowAnimation: UITableViewRowAnimation.Top);
-    }
-    
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "HistorySegue") {
-            var destVC : ResultsPageViewController = segue.destinationViewController as ResultsPageViewController;
-            destVC.definition = self.historyArray[self.historyTableView.indexPathForSelectedRow()!.section]
-            self.historyTableView.deselectRowAtIndexPath(self.historyTableView.indexPathForSelectedRow()!, animated: true)
+        //Reload data
+        self.bookmarksArray = Storage.getStarredArray()
+        
+        if (self.bookmarksTableView != nil) {
+            self.bookmarksTableView.reloadData();
+            //Scrollable only if contents biggah
+            if self.bookmarksTableView.contentSize.height < self.bookmarksTableView.frame.size.height {
+                self.bookmarksTableView.scrollEnabled = false;
+            } else {
+                self.bookmarksTableView.scrollEnabled = true;
+            }
         }
     }
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "BookmarksSegue") {
+            var destVC : ResultsPageViewController = segue.destinationViewController as ResultsPageViewController;
+            destVC.definition = self.bookmarksArray[self.bookmarksTableView.indexPathForSelectedRow()!.section]
+            self.bookmarksTableView.deselectRowAtIndexPath(self.bookmarksTableView.indexPathForSelectedRow()!, animated: true)
+        }
+    }
+    
     //MARK : UITableView Delegate
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,13 +75,13 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.historyArray.count;
+        return self.bookmarksArray.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.historyTableView.dequeueReusableCellWithIdentifier("DefinitionCell") as UITableViewCell
+        var cell:UITableViewCell = self.bookmarksTableView.dequeueReusableCellWithIdentifier("DefinitionCell") as UITableViewCell
         
-        var def : Definition =  self.historyArray[indexPath.section]
+        var def : Definition =  self.bookmarksArray[indexPath.section]
         cell.textLabel?.text = def.word
         
         return cell

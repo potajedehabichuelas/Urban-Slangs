@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class ResultsPageViewController: UIViewController {
 
+    @IBOutlet weak var starredButton: UIButton!
+    
     @IBOutlet weak var backgroundImageView: UIImageView!;
     
     @IBOutlet weak var defTextView: UITextView!
@@ -24,6 +27,7 @@ class ResultsPageViewController: UIViewController {
     
     @IBOutlet weak var relatedTagsTextView: UITextView!
     
+    @IBOutlet weak var relatedLabel: UILabel!
     
     //Stars outlet collection
     
@@ -54,6 +58,14 @@ class ResultsPageViewController: UIViewController {
         //Gesture tapper for the textview to recognize which word was tapped
         var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "relatedTagTapped:")
         self.relatedTagsTextView.addGestureRecognizer(tap)
+        
+        //Hide related label if there are not any related tags
+        if (self.relatedTagsArray.count == 0) {
+            self.relatedLabel.hidden = true;
+        }
+        
+        //Add entry to the history View
+        Storage.addHistoryWordEntry(self.definition)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -81,6 +93,19 @@ class ResultsPageViewController: UIViewController {
             }, completion:nil)
     }
     
+    @IBAction func setWordBookmarked(sender: AnyObject) {
+        
+        self.starredButton.selected = self.starredButton.selected ? false : true;
+        if (self.starredButton.selected) {
+            //Add entry
+            Storage.addStarredWordEntry(self.definition);
+        } else {
+            //Delete entry
+            Storage.removeStarredWordEntry(self.definition);
+        }
+    }
+    
+    
     func setUpPageInformation() {
         //Set all the information
         self.setUpRating();
@@ -103,8 +128,17 @@ class ResultsPageViewController: UIViewController {
         //Call it after to resize constraints
         self.view.layoutIfNeeded()
         
-        //Definition number label
-        self.definitionNumberLabel.text = "Definition \(self.pageIndex + 1) / \(self.totalPages)"
+        //Definition number label / if else just in case its 0 (minimun is 1 when it comes from bookmars / history
+        self.definitionNumberLabel.text = "Definition \(self.pageIndex + 1) / \(self.totalPages > 0 ? self.totalPages : 1)"
+        
+        //Set if the word is starred
+        for def in Storage.getStarredArray() {
+            if (def.isEqualToDefinition(self.definition)) {
+                //Mark button as enabled
+                self.starredButton.selected = true;
+                break;
+            }
+        }
     
     }
     
@@ -191,7 +225,11 @@ class ResultsPageViewController: UIViewController {
     
     
     @IBAction func backToSearch(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true);
+        if self.navigationController != nil {
+            self.navigationController?.popViewControllerAnimated(true);
+        } else {
+            self.dismissViewControllerAnimated(true, completion: nil);
+        }
     }
 
     func requestTagWordInformation(word : String)

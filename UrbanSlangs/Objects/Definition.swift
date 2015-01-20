@@ -18,7 +18,9 @@ private let DEFINITION_EXAMPLE_KEY : String = "example";
 
 private let DEFINITION_WORD_KEY : String = "word";
 
-class Definition: NSObject {
+private let DEFINITION_ID_KEY : String = "ID";
+
+class Definition: NSObject, NSCoding {
     
     var word : String = "";
     
@@ -54,6 +56,48 @@ class Definition: NSObject {
         }*/
         
         return newDef;
+    }
+    
+    func isEqualToDefinition(def: Definition?) -> Bool {
+        
+        if self.word == def?.word && self.definition == def?.definition && self.example == def?.example {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    // MARK : NSCODING
+    
+    override init() {
+        super.init()
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        
+        aCoder.encodeObject(self.definition, forKey: DEFINITION_DEF_KEY)
+        aCoder.encodeObject(self.word, forKey: DEFINITION_WORD_KEY)
+        aCoder.encodeObject(self.example, forKey: DEFINITION_EXAMPLE_KEY)
+        
+        aCoder.encodeInteger(self.ID, forKey:DEFINITION_ID_KEY)
+        
+        aCoder.encodeInteger(self.thumbsDown, forKey:DEFINITION_THUMBS_DOWN_KEY)
+        aCoder.encodeInteger(self.thumbsUp, forKey:DEFINITION_THUMBS_UP_KEY)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        
+        super.init()
+        
+        self.word = aDecoder.decodeObjectForKey(DEFINITION_WORD_KEY) as String
+        
+        self.definition = aDecoder.decodeObjectForKey(DEFINITION_DEF_KEY) as String
+        self.example = aDecoder.decodeObjectForKey(DEFINITION_EXAMPLE_KEY) as String
+        
+        self.ID = aDecoder.decodeIntegerForKey(DEFINITION_ID_KEY)
+        
+        self.thumbsDown = aDecoder.decodeIntegerForKey(DEFINITION_THUMBS_DOWN_KEY)
+        self.thumbsUp = aDecoder.decodeIntegerForKey(DEFINITION_THUMBS_UP_KEY)
     }
     
 }

@@ -14,6 +14,13 @@
 		480D0D881A3B175400BE323B /* Slang_Dictionary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 480D0D861A3B175400BE323B /* Slang_Dictionary.xcdatamodeld */; };
 		480D0D8F1A3B175400BE323B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 480D0D8E1A3B175400BE323B /* Images.xcassets */; };
 		480D0D9E1A3B175400BE323B /* Slang_DictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480D0D9D1A3B175400BE323B /* Slang_DictionaryTests.swift */; };
+		482EF5BE1A6D20F20065F543 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482EF5BD1A6D20F20065F543 /* Storage.swift */; };
+		482EF5C01A6D573C0065F543 /* trash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 482EF5BF1A6D573C0065F543 /* trash@2x.png */; };
+		482EF5C31A6D70410065F543 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 482EF5C11A6D70410065F543 /* star@2x.png */; };
+		482EF5C41A6D70410065F543 /* starFull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 482EF5C21A6D70410065F543 /* starFull@2x.png */; };
+		48383AE91A626B0A00A9337E /* shuffle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48383AE81A626B0A00A9337E /* shuffle@2x.png */; };
+		48383AEB1A626C3400A9337E /* bookmarks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48383AEA1A626C3400A9337E /* bookmarks@2x.png */; };
+		48383AED1A6279D200A9337E /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48383AEC1A6279D200A9337E /* BookmarksViewController.swift */; };
 		4841AA4D1A4E47EC000518E5 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4841AA4B1A4E47EC000518E5 /* libGoogleAdMobAds.a */; };
 		4841AA4E1A4E47EC000518E5 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4841AA4C1A4E47EC000518E5 /* README.txt */; };
 		4841AA501A4E8BF3000518E5 /* AdMobHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4841AA4F1A4E8BF3000518E5 /* AdMobHelper.swift */; };
@@ -89,6 +96,13 @@
 		480D0D971A3B175400BE323B /* Urban SlangsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Urban SlangsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		480D0D9C1A3B175400BE323B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		480D0D9D1A3B175400BE323B /* Slang_DictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slang_DictionaryTests.swift; sourceTree = "<group>"; };
+		482EF5BD1A6D20F20065F543 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		482EF5BF1A6D573C0065F543 /* trash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trash@2x.png"; sourceTree = "<group>"; };
+		482EF5C11A6D70410065F543 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
+		482EF5C21A6D70410065F543 /* starFull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "starFull@2x.png"; sourceTree = "<group>"; };
+		48383AE81A626B0A00A9337E /* shuffle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shuffle@2x.png"; sourceTree = "<group>"; };
+		48383AEA1A626C3400A9337E /* bookmarks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bookmarks@2x.png"; sourceTree = "<group>"; };
+		48383AEC1A6279D200A9337E /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		4841AA2E1A4E47EC000518E5 /* DFPBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPBannerView.h; sourceTree = "<group>"; };
 		4841AA2F1A4E47EC000518E5 /* DFPExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPExtras.h; sourceTree = "<group>"; };
 		4841AA301A4E47EC000518E5 /* DFPInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPInterstitial.h; sourceTree = "<group>"; };
@@ -240,6 +254,7 @@
 			children = (
 				486600931A46B30600CD090B /* LaunchScreen.xib */,
 				486600951A46B30600CD090B /* Main.storyboard */,
+				482EF5BD1A6D20F20065F543 /* Storage.swift */,
 				4805C7621A4177B700E293C9 /* Objects */,
 				485B40B31A3FA953007052A6 /* Network */,
 				485B40B41A3FA953007052A6 /* View Controllers */,
@@ -371,6 +386,7 @@
 				485B40B51A3FA953007052A6 /* SearchViewController.swift */,
 				4841AA681A5152A5000518E5 /* SideMenuViewController.swift */,
 				486600801A440F6000CD090B /* Results */,
+				48383AEC1A6279D200A9337E /* BookmarksViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -424,6 +440,11 @@
 		486600791A42BD9300CD090B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				482EF5C11A6D70410065F543 /* star@2x.png */,
+				482EF5C21A6D70410065F543 /* starFull@2x.png */,
+				482EF5BF1A6D573C0065F543 /* trash@2x.png */,
+				48383AEA1A626C3400A9337E /* bookmarks@2x.png */,
+				48383AE81A626B0A00A9337E /* shuffle@2x.png */,
 				4841AA521A5148FA000518E5 /* settings@2x.png */,
 				486600911A46A79B00CD090B /* searchButtonDisabled@2x.png */,
 				4866008F1A46A55F00CD090B /* searchButtonTest@2x.png */,
@@ -624,12 +645,14 @@
 				486600871A46838900CD090B /* fullStar@2x.png in Resources */,
 				48D9CE8C1A471A8C0001DDB2 /* NotificationButtonBackground@2x.png in Resources */,
 				4866007F1A42C32200CD090B /* searchButton@2x.png in Resources */,
+				48383AEB1A626C3400A9337E /* bookmarks@2x.png in Resources */,
 				48D9CE7F1A471A8C0001DDB2 /* NotificationBackgroundErrorIcon.png in Resources */,
 				48D9CE831A471A8C0001DDB2 /* NotificationBackgroundSuccess.png in Resources */,
 				486600971A46B30600CD090B /* LaunchScreen.xib in Resources */,
 				48D9CE881A471A8C0001DDB2 /* NotificationBackgroundWarning@2x.png in Resources */,
 				486600921A46A79B00CD090B /* searchButtonDisabled@2x.png in Resources */,
 				48D9CE871A471A8C0001DDB2 /* NotificationBackgroundWarning.png in Resources */,
+				482EF5C31A6D70410065F543 /* star@2x.png in Resources */,
 				48D9CE801A471A8C0001DDB2 /* NotificationBackgroundErrorIcon@2x.png in Resources */,
 				486600981A46B30600CD090B /* Main.storyboard in Resources */,
 				48D9CE851A471A8C0001DDB2 /* NotificationBackgroundSuccessIcon.png in Resources */,
@@ -639,13 +662,16 @@
 				48D9CE841A471A8C0001DDB2 /* NotificationBackgroundSuccess@2x.png in Resources */,
 				4866007E1A42C32200CD090B /* searchBarContainer@2x.png in Resources */,
 				48D9CE821A471A8C0001DDB2 /* NotificationBackgroundMessage@2x.png in Resources */,
+				48383AE91A626B0A00A9337E /* shuffle@2x.png in Resources */,
 				480D0D8F1A3B175400BE323B /* Images.xcassets in Resources */,
 				4866007B1A42BD9300CD090B /* searchBg@2x.jpg in Resources */,
+				482EF5C41A6D70410065F543 /* starFull@2x.png in Resources */,
 				48D9CE8B1A471A8C0001DDB2 /* NotificationButtonBackground.png in Resources */,
 				48D9CE8A1A471A8C0001DDB2 /* NotificationBackgroundWarningIcon@2x.png in Resources */,
 				48D9CE7D1A471A8C0001DDB2 /* NotificationBackgroundError.png in Resources */,
 				486600881A46838900CD090B /* noStar@2x.png in Resources */,
 				48D9CE811A471A8C0001DDB2 /* NotificationBackgroundMessage.png in Resources */,
+				482EF5C01A6D573C0065F543 /* trash@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +695,7 @@
 				486600841A440FA300CD090B /* ResultsManagerViewController.swift in Sources */,
 				485B40D31A3FB220007052A6 /* AFSecurityPolicy.m in Sources */,
 				4805C7641A4177C500E293C9 /* Definition.swift in Sources */,
+				48383AED1A6279D200A9337E /* BookmarksViewController.swift in Sources */,
 				485B40B61A3FA953007052A6 /* SearchViewController.swift in Sources */,
 				48D9CE911A471A8C0001DDB2 /* TSMessageView.m in Sources */,
 				485B40D01A3FB220007052A6 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -676,6 +703,7 @@
 				485B40D41A3FB220007052A6 /* AFURLConnectionOperation.m in Sources */,
 				486600821A440F6000CD090B /* ResultsPageViewController.swift in Sources */,
 				4841AA811A516F36000518E5 /* SWRevealViewController.m in Sources */,
+				482EF5BE1A6D20F20065F543 /* Storage.swift in Sources */,
 				48D9CE901A471A8C0001DDB2 /* TSMessage.m in Sources */,
 				485B40CF1A3FB220007052A6 /* AFHTTPRequestOperation.m in Sources */,
 				480D0D881A3B175400BE323B /* Slang_Dictionary.xcdatamodeld in Sources */,

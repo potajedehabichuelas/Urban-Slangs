@@ -12,6 +12,7 @@ struct SeguesID {
     static let QUERY_RESULT_SEGUE_ID : String = "QueryResultSegue"
 }
 
+private let RANDOM_BUTTON_TAG = 10;
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
     
@@ -20,6 +21,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     
+    @IBOutlet weak var randomButton: UIButton!
+    
+    @IBOutlet weak var disclaimerLabel: UILabel!
+    
     @IBOutlet weak var bannerView: GADBannerView!
     
     var fullScreenAd : GADInterstitial = GADInterstitial();
@@ -27,6 +32,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     var queryResult : QueryResult?;
     
     var canPerformResultSegue : Bool = false;
+    
+    var settingsOnScreen = false;
+    var bookmarksOnScreen = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +70,15 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         var swipeLeft = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeft)
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
+            Int64(3.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+            //hide disclaimer tag
+            UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: {
+                self.disclaimerLabel.alpha = 0.0;
+                }, completion: { finished in
+            })
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -73,6 +90,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         self.fullScreenAd = AdMobHelper.createAndLoadFullScreenAd();
         
     }
+    @IBAction func bookmarksClicked(sender: AnyObject) {
+        
+        self.revealViewController().rightRevealToggleAnimated(true);
+        self.bookmarksOnScreen = self.bookmarksOnScreen ? false : true;
+        self.view.endEditing(true);
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -82,12 +105,25 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     func gestureResponder(gesture: UIGestureRecognizer) {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            self.settingsClicked(swipeGesture);
+            if (swipeGesture.direction == UISwipeGestureRecognizerDirection.Right) {
+                if (self.bookmarksOnScreen) {
+                    self.bookmarksClicked(swipeGesture);
+                } else {
+                    self.settingsClicked(swipeGesture);
+                }
+            } else if (swipeGesture.direction == UISwipeGestureRecognizerDirection.Left) {
+                if (self.settingsOnScreen) {
+                    self.settingsClicked(swipeGesture);
+                } else {
+                    self.bookmarksClicked(swipeGesture);
+                }
+            }
         }
     }
     
     @IBAction func settingsClicked(sender: AnyObject) {
         self.revealViewController().revealToggleAnimated(true);
+        self.settingsOnScreen = self.settingsOnScreen ? false : true;
         self.view.endEditing(true);
     }
     
@@ -97,6 +133,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         //DisableButton
         self.searchButton.enabled = false;
+        self.randomButton.enabled = false;
 
         //Show the activity indicator
         self.activityIndicator.alpha = 1.0;
@@ -108,9 +145,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             }, completion: nil)
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
-            //Remove spaces and put +
-            var searchWord : String = self.searchTextField.text.stringByReplacingOccurrencesOfString(" ", withString: "+", options: nil, range: nil)
-            self.queryResult = SlangNet.sharedInstance.requestWordInformation(searchWord);
+            
+            if ((sender as UIButton).tag == RANDOM_BUTTON_TAG) {
+                //Random
+                self.queryResult = SlangNet.sharedInstance.requestRandomWordInformation();
+            } else {
+                //Input string
+                //Remove spaces and put +
+                var searchWord : String = self.searchTextField.text.stringByReplacingOccurrencesOfString(" ", withString: "+", options: nil, range: nil)
+                self.queryResult = SlangNet.sharedInstance.requestWordInformation(searchWord);
+            }
             
             dispatch_async(dispatch_get_main_queue()) {
                 // update some UI
@@ -122,6 +166,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                         self.activityIndicator.hidden = true;
                         //Re enable the button
                         self.searchButton.enabled = true;
+                        self.randomButton.enabled = true;
                         self.dismissKeyboard()
                 })
                 
@@ -136,7 +181,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                     //Show ad and after that perform segue
                     self.fullScreenAd.presentFromRootViewController(self.navigationController);
                     
-                    if self.queryResult?.resultType != QueryConstants.QUERY_RESULT_TYPE_EXACT {
+                    if self.queryResult?.resultType != QueryConstants.QUERY_RESULT_TYPE_EXACT && self.queryResult?.searchString != "random_Search" {
                         //TSMessage - //If result wasnt exact, inform the user
                         TSMessage.showNotificationWithTitle("Whooops :(", subtitle: "No results matched. But perhaps you might be interested in these!", type:TSMessageNotificationType.Warning);
                     }

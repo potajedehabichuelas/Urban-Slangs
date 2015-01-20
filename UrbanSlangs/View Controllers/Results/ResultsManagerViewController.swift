@@ -41,6 +41,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         self.view.addSubview(self.pageViewController!.view);
         
         self.pageViewController?.didMoveToParentViewController(self);
+
     }
 
     override func didReceiveMemoryWarning() {

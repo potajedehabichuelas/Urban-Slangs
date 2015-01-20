@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>35AD8648-CF9C-4FF2-AC77-8C811EC52084</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Urban Slangs</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>45C0A59ED0CCE96617D84605C6ED07FE18254CA0</key>
+		<string>https://github.com/potajedehabichuelas/Urban-Slangs.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Urban Slangs.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>45C0A59ED0CCE96617D84605C6ED07FE18254CA0</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/potajedehabichuelas/Urban-Slangs.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>45C0A59ED0CCE96617D84605C6ED07FE18254CA0</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>45C0A59ED0CCE96617D84605C6ED07FE18254CA0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Slangs</string>
+		</dict>
+	</array>
+</dict>
+</plist>

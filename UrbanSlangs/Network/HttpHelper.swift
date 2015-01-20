@@ -83,6 +83,7 @@ class HttpHelper: NSObject {
                 //println("JSON: " + responseObject.description);
                 
                 responseJSON = responseObject;
+                //println(responseJSON);
                 //Signal semaphore
                 dispatch_semaphore_signal(semaphore);
                 
