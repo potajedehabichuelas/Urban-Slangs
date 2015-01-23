@@ -13,27 +13,36 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var imageViewBg: UIImageView!
     
     @IBOutlet weak var removeAdsButton: UIButton!
-
-    @IBOutlet weak var blurView: UIView!
     
     @IBOutlet weak var historyTableView: UITableView!
     
     var historyArray : Array <Definition> = Array();
     
-    var effectView:UIVisualEffectView = UIVisualEffectView();
+    var effectView : UIView? = nil;
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //Blur effect for the imagev background
-        let blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
-        self.effectView = UIVisualEffectView (effect: blur);
-        self.effectView.frame = self.view.frame
-        if (self.imageViewBg != nil) {
-            self.view.insertSubview(effectView, aboveSubview: self.imageViewBg)
+        
+        //If device has ios 7, UIVisualEffectView is not available
+       switch UIDevice.currentDevice().systemVersion.compare("8.0.0", options: NSStringCompareOptions.NumericSearch) {
+        case .OrderedSame, .OrderedDescending:
+            //Ios 8 or higher
+            self.effectView = UIVisualEffectView();
+            //Blur effect for the imagev background
+            let blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+            self.effectView! = UIVisualEffectView (effect: blur);
+            self.effectView!.frame = self.view.frame
+            
+            if (self.imageViewBg != nil) {
+                self.view.insertSubview(self.effectView!, aboveSubview: self.imageViewBg)
+            }
+       case .OrderedAscending:
+        //ios 7 and lower
+            println("ios 7")
         }
+
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated);
         
@@ -53,7 +62,9 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewWillLayoutSubviews() {
         //Update effect frame
-        self.effectView.frame = self.view.frame
+        if self.effectView != nil  {
+            self.effectView!.frame = self.view.frame
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,6 +110,8 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         var def : Definition =  self.historyArray[indexPath.section]
         cell.textLabel?.text = def.word
         
+        cell.backgroundColor = UIColor(red:0.0, green:0.0,blue:0.0,alpha:0.41)
+        
         return cell
     }
     
@@ -121,21 +134,14 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 0.0
-        } else {
-            return 5.0
-        }
+        return 5.0
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
-            return 0.0
-        } else if section == 1 {
             return 10.0
         } else {
             return 5.0
         }
     }
-
 }

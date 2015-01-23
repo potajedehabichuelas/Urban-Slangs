@@ -90,7 +90,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         self.fullScreenAd = AdMobHelper.createAndLoadFullScreenAd();
         
     }
-    @IBAction func bookmarksClicked(sender: AnyObject) {
+    @IBAction func bookmarksClicked(sender: AnyObject?) {
         
         self.revealViewController().rightRevealToggleAnimated(true);
         self.bookmarksOnScreen = self.bookmarksOnScreen ? false : true;
@@ -121,7 +121,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func settingsClicked(sender: AnyObject) {
+    @IBAction func settingsClicked(sender: AnyObject?) {
         self.revealViewController().revealToggleAnimated(true);
         self.settingsOnScreen = self.settingsOnScreen ? false : true;
         self.view.endEditing(true);
@@ -130,6 +130,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBAction func searchString(sender: AnyObject) {
         
         //Search for the introduced string
+        
+        //Hide side menu or bookmarks menu if on screen
+        if self.bookmarksOnScreen {
+            self.bookmarksClicked(nil);
+        } else if self.settingsOnScreen {
+            self.settingsClicked(nil);
+        }
         
         //DisableButton
         self.searchButton.enabled = false;

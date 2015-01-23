@@ -60,7 +60,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgU-29-0dx">
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgU-29-0dx">
                                 <rect key="frame" x="0.0" y="0.0" width="260" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="oht-50-7eL"/>
@@ -90,14 +90,14 @@
                         <viewControllerLayoutGuide type="top" id="PTD-s6-TbS"/>
                         <viewControllerLayoutGuide type="bottom" id="gcB-o6-6si"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0Kt-uk-J5e">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="0Kt-uk-J5e">
                         <rect key="frame" x="0.0" y="0.0" width="260" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchBg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gwf-yp-Nqh">
                                 <rect key="frame" x="0.0" y="0.0" width="260" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWT-cl-7dD">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWT-cl-7dD">
                                 <rect key="frame" x="10" y="58" width="240" height="47"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -151,6 +151,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.41000000000000003" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -208,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEW-tL-LLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="925" y="-228"/>
+            <point key="canvasLocation" x="728.25" y="-219.75"/>
         </scene>
         <!--Urban Slang-->
         <scene sceneID="tne-QT-ifu">
@@ -884,7 +885,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-4i-R5w">
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjJ-4i-R5w">
                                 <rect key="frame" x="340" y="0.0" width="260" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="2r7-gm-dqE"/>
@@ -914,7 +915,7 @@
                         <viewControllerLayoutGuide type="top" id="J1Q-wO-Rn8"/>
                         <viewControllerLayoutGuide type="bottom" id="PS5-1K-qZM"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3yo-Cn-bjk">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="3yo-Cn-bjk">
                         <rect key="frame" x="0.0" y="0.0" width="260" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1003,6 +1004,6 @@
         <image name="trash.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CHj-mC-e5r"/>
+        <segue reference="nnU-Au-63k"/>
     </inferredMetricsTieBreakers>
 </document>
