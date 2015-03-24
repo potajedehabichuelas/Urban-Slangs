@@ -21,7 +21,6 @@
 		48383AE91A626B0A00A9337E /* shuffle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48383AE81A626B0A00A9337E /* shuffle@2x.png */; };
 		48383AEB1A626C3400A9337E /* bookmarks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48383AEA1A626C3400A9337E /* bookmarks@2x.png */; };
 		48383AED1A6279D200A9337E /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48383AEC1A6279D200A9337E /* BookmarksViewController.swift */; };
-		4841AA4D1A4E47EC000518E5 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4841AA4B1A4E47EC000518E5 /* libGoogleAdMobAds.a */; };
 		4841AA4E1A4E47EC000518E5 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4841AA4C1A4E47EC000518E5 /* README.txt */; };
 		4841AA501A4E8BF3000518E5 /* AdMobHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4841AA4F1A4E8BF3000518E5 /* AdMobHelper.swift */; };
 		4841AA531A5148FA000518E5 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4841AA521A5148FA000518E5 /* settings@2x.png */; };
@@ -51,6 +50,7 @@
 		486600921A46A79B00CD090B /* searchButtonDisabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 486600911A46A79B00CD090B /* searchButtonDisabled@2x.png */; };
 		486600971A46B30600CD090B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486600931A46B30600CD090B /* LaunchScreen.xib */; };
 		486600981A46B30600CD090B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 486600951A46B30600CD090B /* Main.storyboard */; };
+		48B15D4F1A756C200020CC47 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4841AA4B1A4E47EC000518E5 /* libGoogleAdMobAds.a */; };
 		48D9CE7D1A471A8C0001DDB2 /* NotificationBackgroundError.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE5E1A471A8C0001DDB2 /* NotificationBackgroundError.png */; };
 		48D9CE7E1A471A8C0001DDB2 /* NotificationBackgroundError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE5F1A471A8C0001DDB2 /* NotificationBackgroundError@2x.png */; };
 		48D9CE7F1A471A8C0001DDB2 /* NotificationBackgroundErrorIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 48D9CE601A471A8C0001DDB2 /* NotificationBackgroundErrorIcon.png */; };
@@ -205,7 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4841AA4D1A4E47EC000518E5 /* libGoogleAdMobAds.a in Frameworks */,
+				48B15D4F1A756C200020CC47 /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,6 +774,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
@@ -797,6 +798,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/${PRODUCT_NAME}/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -821,6 +823,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEFINES_MODULE = YES;
@@ -837,6 +840,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/${PRODUCT_NAME}/Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -861,6 +865,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Urban Slangs";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/UrbanSlangs/Bridging-Header.h";
 			};
 			name = Debug;
@@ -882,6 +887,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Urban Slangs";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/UrbanSlangs/Bridging-Header.h";
 			};
 			name = Release;
@@ -901,6 +907,7 @@
 				INFOPLIST_FILE = UrbanSlangsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "Urban SlangsTests";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/UrbanSlangs/Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Urban Slangs.app/Urban Slangs";
 			};
@@ -917,6 +924,7 @@
 				INFOPLIST_FILE = UrbanSlangsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "Urban SlangsTests";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/UrbanSlangs/Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Urban Slangs.app/Urban Slangs";
 			};

@@ -124,6 +124,7 @@ class ResultsPageViewController: UIViewController {
         //Force textview to calculate its content
         self.defTextView.sizeToFit();
         self.examplesTextView.sizeToFit();
+        self.relatedTagsTextView.sizeToFit();
         
         //Call it after to resize constraints
         self.view.layoutIfNeeded()
