@@ -153,7 +153,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
             
-            if ((sender as UIButton).tag == RANDOM_BUTTON_TAG) {
+            if ((sender as! UIButton).tag == RANDOM_BUTTON_TAG) {
                 //Random
                 self.queryResult = SlangNet.sharedInstance.requestRandomWordInformation();
             } else {
@@ -232,14 +232,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
             
             var info = notification.userInfo!
-            var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+            var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
             
             //Get animation time
-            var durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as Double;
+            var durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as! Double;
             var animationDuration : NSTimeInterval = durationValue
             
             //And the animation curve
-            var curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as Int;
+            var curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as! Int;
             
             var animationCurve = UIViewAnimationCurve(rawValue: curveValue) // or use UIViewAnimationOptions(kbCurve << 16)  directly in the UIView animation
             
@@ -259,14 +259,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     func keyboardWillHide(notification: NSNotification)
     {
         var info = notification.userInfo!
-        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         //Get animation time
-        var durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as Double;
+        var durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as! Double;
         var animationDuration : NSTimeInterval = durationValue
         
         //And the animation curve
-        var curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as Int;
+        var curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as! Int;
         
         var animationCurve = UIViewAnimationCurve(rawValue: curveValue) // or use UIViewAnimationOptions(kbCurve << 16)  directly in the UIView animation
         
@@ -286,7 +286,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "QueryResultSegue") {
-            var destVC : ResultsManagerViewController = segue.destinationViewController as ResultsManagerViewController;
+            var destVC : ResultsManagerViewController = segue.destinationViewController as! ResultsManagerViewController;
             destVC.results = self.queryResult!;
         }
     }

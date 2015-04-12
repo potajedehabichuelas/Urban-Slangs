@@ -39,16 +39,16 @@ class Definition: NSObject, NSCoding {
         var newDef : Definition = Definition();
         
         //Word
-        newDef.word = defDict[DEFINITION_WORD_KEY] as String;
+        newDef.word = defDict[DEFINITION_WORD_KEY] as! String;
         //Definition
-        newDef.definition = defDict[DEFINITION_DEF_KEY] as String;
+        newDef.definition = defDict[DEFINITION_DEF_KEY] as! String;
         
         //Thumbs ups and down
-        newDef.thumbsDown = defDict[DEFINITION_THUMBS_DOWN_KEY] as Int;
-        newDef.thumbsUp = defDict[DEFINITION_THUMBS_UP_KEY] as Int;
+        newDef.thumbsDown = defDict[DEFINITION_THUMBS_DOWN_KEY] as! Int;
+        newDef.thumbsUp = defDict[DEFINITION_THUMBS_UP_KEY] as! Int;
         
         //Add example
-        newDef.example = defDict[DEFINITION_EXAMPLE_KEY] as String;
+        newDef.example = defDict[DEFINITION_EXAMPLE_KEY] as! String;
         
         /*for (key, value) in defDict {
             println("\n KEY IS : \(key) ->\n  VALUE  ");
@@ -89,10 +89,10 @@ class Definition: NSObject, NSCoding {
         
         super.init()
         
-        self.word = aDecoder.decodeObjectForKey(DEFINITION_WORD_KEY) as String
+        self.word = aDecoder.decodeObjectForKey(DEFINITION_WORD_KEY) as! String
         
-        self.definition = aDecoder.decodeObjectForKey(DEFINITION_DEF_KEY) as String
-        self.example = aDecoder.decodeObjectForKey(DEFINITION_EXAMPLE_KEY) as String
+        self.definition = aDecoder.decodeObjectForKey(DEFINITION_DEF_KEY) as! String
+        self.example = aDecoder.decodeObjectForKey(DEFINITION_EXAMPLE_KEY) as! String
         
         self.ID = aDecoder.decodeIntegerForKey(DEFINITION_ID_KEY)
         

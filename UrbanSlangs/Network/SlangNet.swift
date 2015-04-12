@@ -27,7 +27,7 @@ class SlangNet: NSObject {
     
     func parseJSON(inputData: NSData) -> NSDictionary{
         var error: NSError?
-        var boardsDictionary: NSDictionary = NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
+        var boardsDictionary: NSDictionary = NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers, error: &error) as! NSDictionary
         
         return boardsDictionary
     }
@@ -46,7 +46,7 @@ class SlangNet: NSObject {
         var queryResult : QueryResult?;
         
         if (requestResult != nil) {
-            queryResult = QueryResult.queryResultFromJSON(wordString, jsonDict: requestResult as NSDictionary);
+            queryResult = QueryResult.queryResultFromJSON(wordString, jsonDict: requestResult as! NSDictionary);
         }
     
         return queryResult;
@@ -63,7 +63,7 @@ class SlangNet: NSObject {
         var queryResult : QueryResult?;
         
         if (requestResult != nil) {
-            queryResult = QueryResult.queryResultFromJSON("random_Search", jsonDict: requestResult as NSDictionary);
+            queryResult = QueryResult.queryResultFromJSON("random_Search", jsonDict: requestResult as! NSDictionary);
         }
         
         return queryResult;

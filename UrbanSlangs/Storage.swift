@@ -70,7 +70,7 @@ class Storage: NSObject {
         // Create a filepath for archiving.
         var libraryDirectories : NSArray = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
         // Get document directory from that list
-        var libraryDirectory:String = libraryDirectories.objectAtIndex(0) as String
+        var libraryDirectory:String = libraryDirectories.objectAtIndex(0) as! String
         // append with the .archive file name
         return libraryDirectory.stringByAppendingPathComponent("historyWords.archive")
     }
@@ -80,14 +80,14 @@ class Storage: NSObject {
         // Create a filepath for archiving.
         var libraryDirectories : NSArray = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
         // Get document directory from that list
-        var libraryDirectory:String = libraryDirectories.objectAtIndex(0) as String
+        var libraryDirectory:String = libraryDirectories.objectAtIndex(0) as! String
         // append with the .archive file name
         return libraryDirectory.stringByAppendingPathComponent("starredWords.archive")
     }
     
     class func getStarredArray() -> Array<Definition>
     {
-        var starredArray  = NSKeyedUnarchiver.unarchiveObjectWithFile(self.getStarredArrayPath()) as Array<Definition>?
+        var starredArray  = NSKeyedUnarchiver.unarchiveObjectWithFile(self.getStarredArrayPath()) as! Array<Definition>?
         
         if starredArray != nil {
             return starredArray!
@@ -109,7 +109,7 @@ class Storage: NSObject {
     
     class func getHistoryArray() -> Array<Definition>
     {
-        var historyArray  = NSKeyedUnarchiver.unarchiveObjectWithFile(self.getHistoryArrayPath()) as Array<Definition>?
+        var historyArray  = NSKeyedUnarchiver.unarchiveObjectWithFile(self.getHistoryArrayPath()) as! Array<Definition>?
         
         if historyArray != nil {
             return historyArray!

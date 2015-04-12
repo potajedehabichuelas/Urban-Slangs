@@ -43,9 +43,9 @@ class QueryResult: NSObject {
         
         // tags
         if ((jsonDict[WORD_TAGS_KEY]) != nil) {
-            for tag in jsonDict[WORD_TAGS_KEY] as NSArray {
+            for tag in jsonDict[WORD_TAGS_KEY] as! NSArray {
                 //Add the tags to the array
-                qresult.tags?.append(tag as String);
+                qresult.tags?.append(tag as! String);
             }
         }
         
@@ -56,15 +56,15 @@ class QueryResult: NSObject {
         }*/
         
         // list
-        for defDict in jsonDict[WORD_LIST_KEY] as NSArray {
+        for defDict in jsonDict[WORD_LIST_KEY] as! NSArray {
             //Add the definitions to the array
-            let definition : Definition = Definition.definitionFromJSON(defDict as NSDictionary);
+            let definition : Definition = Definition.definitionFromJSON(defDict as! NSDictionary);
             qresult.definitions?.append(definition);
         }
         
         // result_type
         if (jsonDict[WORD_RESULT_TYPE_KEY] != nil) {
-            qresult.resultType = jsonDict[WORD_RESULT_TYPE_KEY] as String;
+            qresult.resultType = jsonDict[WORD_RESULT_TYPE_KEY] as! String;
         }
         
         return qresult;

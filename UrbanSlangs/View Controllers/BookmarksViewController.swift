@@ -75,7 +75,7 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "BookmarksSegue") {
-            var destVC : ResultsPageViewController = segue.destinationViewController as ResultsPageViewController;
+            var destVC : ResultsPageViewController = segue.destinationViewController as! ResultsPageViewController;
             destVC.definition = self.bookmarksArray[self.bookmarksTableView.indexPathForSelectedRow()!.section]
             self.bookmarksTableView.deselectRowAtIndexPath(self.bookmarksTableView.indexPathForSelectedRow()!, animated: true)
         }
@@ -92,7 +92,7 @@ class BookmarksViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.bookmarksTableView.dequeueReusableCellWithIdentifier("DefinitionCell") as UITableViewCell
+        var cell:UITableViewCell = self.bookmarksTableView.dequeueReusableCellWithIdentifier("DefinitionCell") as! UITableViewCell
         
         var def : Definition =  self.bookmarksArray[indexPath.section]
         cell.textLabel?.text = def.word

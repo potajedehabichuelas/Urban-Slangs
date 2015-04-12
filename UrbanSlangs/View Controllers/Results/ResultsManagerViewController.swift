@@ -30,7 +30,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         
         var viewControllers : NSArray = [startingViewController];
         
-        self.pageViewController?.setViewControllers(viewControllers, direction: .Forward, animated: false, completion: nil);
+        self.pageViewController?.setViewControllers(viewControllers as [AnyObject], direction: .Forward, animated: false, completion: nil);
     
         
         // Change the size of page view controller
@@ -67,7 +67,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
             return nil;
         }
         
-        var resultVc : ResultsPageViewController = self.storyboard!.instantiateViewControllerWithIdentifier("ResultContentVC") as ResultsPageViewController;
+        var resultVc : ResultsPageViewController = self.storyboard!.instantiateViewControllerWithIdentifier("ResultContentVC") as! ResultsPageViewController;
         
         //Set the appropiate data for the VC
         resultVc.pageIndex = index;
@@ -81,7 +81,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
 
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
-        var index : Int = (viewController as ResultsPageViewController).pageIndex
+        var index : Int = (viewController as! ResultsPageViewController).pageIndex
         
         if (index == NSNotFound) {
             return nil;
@@ -98,7 +98,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
        
-        var index : Int = (viewController as ResultsPageViewController).pageIndex
+        var index : Int = (viewController as! ResultsPageViewController).pageIndex
         
         if (index == NSNotFound || index == 0) {
             return nil;
@@ -125,6 +125,6 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
     }
     
     func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
-        self.currentIndex = (previousViewControllers.first as ResultsPageViewController).pageIndex;
+        self.currentIndex = (previousViewControllers.first as! ResultsPageViewController).pageIndex;
     }
 }

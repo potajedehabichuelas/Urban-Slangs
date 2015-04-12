@@ -88,7 +88,7 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "HistorySegue") {
-            var destVC : ResultsPageViewController = segue.destinationViewController as ResultsPageViewController;
+            var destVC : ResultsPageViewController = segue.destinationViewController as! ResultsPageViewController;
             destVC.definition = self.historyArray[self.historyTableView.indexPathForSelectedRow()!.section]
             self.historyTableView.deselectRowAtIndexPath(self.historyTableView.indexPathForSelectedRow()!, animated: true)
         }
@@ -105,7 +105,7 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.historyTableView.dequeueReusableCellWithIdentifier("DefinitionCell") as UITableViewCell
+        var cell:UITableViewCell = self.historyTableView.dequeueReusableCellWithIdentifier("DefinitionCell") as! UITableViewCell
         
         var def : Definition =  self.historyArray[indexPath.section]
         cell.textLabel?.text = def.word

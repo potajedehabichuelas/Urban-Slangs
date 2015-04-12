@@ -189,7 +189,7 @@ class ResultsPageViewController: UIViewController {
                 println("range.length = \(range.length)")
                 let tappedPhrase = (textView.attributedText.string as NSString).substringWithRange(range)
                 println("tapped phrase: \(tappedPhrase)")
-                var mutableText = textView.attributedText.mutableCopy() as NSMutableAttributedString
+                var mutableText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
                 mutableText.addAttributes([NSForegroundColorAttributeName: UIColor.blueColor()], range: range)
                 textView.attributedText = mutableText
                 
@@ -254,7 +254,7 @@ class ResultsPageViewController: UIViewController {
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
                 if (self.queryResult != nil && self.queryResult?.definitions?.count > 0) {
                     
-                    let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ResultManagerVC") as ResultsManagerViewController
+                    let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ResultManagerVC") as! ResultsManagerViewController
                     secondViewController.results = self.queryResult!;
                     self.navigationController?.pushViewController(secondViewController, animated: true)
                     
