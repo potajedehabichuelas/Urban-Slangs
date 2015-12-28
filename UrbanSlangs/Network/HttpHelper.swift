@@ -35,7 +35,7 @@ class HttpHelper: NSObject {
         //Semaphore to wait for completition block
         let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
         
-        var manager : AFHTTPRequestOperationManager = AFHTTPRequestOperationManager();
+        let manager : AFHTTPRequestOperationManager = AFHTTPRequestOperationManager();
         
         manager.POST(fullURL,
             parameters: parametersDict,
@@ -48,7 +48,7 @@ class HttpHelper: NSObject {
                 dispatch_semaphore_signal(semaphore);
                 
             }, failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
-                println("[HTTPHelper Error]: " + error.localizedDescription);
+                print("[HTTPHelper Error]: " + error.localizedDescription);
                 //Maybe check for internet connection ?
                 
                 //Signal semaphore
@@ -62,33 +62,33 @@ class HttpHelper: NSObject {
     }
 
     //GET Request
-    class func httpGetURL(url: String, postPath: String, parametersDict:Dictionary<String, AnyObject>?) -> AnyObject?
+    class func httpGetURL(url: String, postPath: String, parametersDict:Dictionary<String, String>?) -> AnyObject?
     {
     
         // ? declares variable as optional, just in case the request fails
         var responseJSON : AnyObject? = nil;
         
         //Create the urls
-        var fullURL = url.stringByAppendingString(postPath);
+        let fullURL = url.stringByAppendingString(postPath);
         
         //Semaphore to wait for completition block
         let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
         
-        var manager : AFHTTPRequestOperationManager = AFHTTPRequestOperationManager();
+        let manager : AFHTTPRequestOperationManager = AFHTTPRequestOperationManager();
         
         manager.GET(fullURL,
             parameters: parametersDict,
             success: {
                 (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                //println("JSON: " + responseObject.description);
+                //print("JSON: " + responseObject.description);
                 
                 responseJSON = responseObject;
-                //println(responseJSON);
+                print(responseJSON);
                 //Signal semaphore
                 dispatch_semaphore_signal(semaphore);
                 
             },failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
-                println("[HTTPHelper Error]: " + error.localizedDescription);
+                print("[HTTPHelper Error]: " + error.localizedDescription);
                 //Maybe check for internet connection ?
                 
                 //Signal semaphore

@@ -26,12 +26,9 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         self.pageViewController!.delegate = self;
         
         //Set it up
-        var startingViewController : ResultsPageViewController = self.viewControllerAtIndex(0)!;
+        let startingViewController = self.viewControllerAtIndex(0)!;
         
-        var viewControllers : NSArray = [startingViewController];
-        
-        self.pageViewController?.setViewControllers(viewControllers as [AnyObject], direction: .Forward, animated: false, completion: nil);
-    
+        self.pageViewController?.setViewControllers([startingViewController], direction: .Forward, animated: false, completion: nil);
         
         // Change the size of page view controller
         self.pageViewController?.view.frame = self.view.frame;
@@ -41,7 +38,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         self.view.addSubview(self.pageViewController!.view);
         
         self.pageViewController?.didMoveToParentViewController(self);
-
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,7 +64,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
             return nil;
         }
         
-        var resultVc : ResultsPageViewController = self.storyboard!.instantiateViewControllerWithIdentifier("ResultContentVC") as! ResultsPageViewController;
+        let resultVc = self.storyboard?.instantiateViewControllerWithIdentifier("ResultContentVC") as! ResultsPageViewController;
         
         //Set the appropiate data for the VC
         resultVc.pageIndex = index;
@@ -124,7 +121,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         return 0;
     }
     
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         self.currentIndex = (previousViewControllers.first as! ResultsPageViewController).pageIndex;
     }
 }

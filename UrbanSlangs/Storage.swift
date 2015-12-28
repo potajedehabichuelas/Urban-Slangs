@@ -25,7 +25,7 @@ class Storage: NSObject {
     {
         var historyArr = self.getHistoryArray();
         //Remove it if it was there
-        if let index = find(historyArr, wordEntry) {
+        if let index = historyArr.indexOf(wordEntry) {
             historyArr.removeAtIndex(index);
         }
         historyArr.insert(wordEntry, atIndex: 0)
@@ -43,8 +43,8 @@ class Storage: NSObject {
     {
         var starredArr = self.getStarredArray();
         //Set if the word is starred
-        for var i = 0; i < 1000000; i++ {
-            var def = starredArr[i]
+        for var i = 0; i < starredArr.count; i++ {
+            let def = starredArr[i]
             if (def.isEqualToDefinition(wordEntry)) {
                 //The word is there, delete it
                 starredArr.removeAtIndex(i);
@@ -56,38 +56,38 @@ class Storage: NSObject {
     
     class func saveStarredArray(starredArray: Array<Definition>)
     {
-        var path : String = self.getStarredArrayPath()
+        let path : String = self.getStarredArrayPath()
         
         if NSKeyedArchiver.archiveRootObject(starredArray, toFile: path) {
-            println("Success saving starred words file")
+            print("Success saving starred words file")
         } else {
-            println("Unable to write starred words file")
+            print("Unable to write starred words file")
         }
     }
     
     class func getHistoryArrayPath() -> String
     {
         // Create a filepath for archiving.
-        var libraryDirectories : NSArray = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
+        let libraryDirectories : NSArray = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
         // Get document directory from that list
-        var libraryDirectory:String = libraryDirectories.objectAtIndex(0) as! String
+        let libraryDirectory:String = libraryDirectories.objectAtIndex(0) as! String
         // append with the .archive file name
-        return libraryDirectory.stringByAppendingPathComponent("historyWords.archive")
+        return libraryDirectory.stringByAppendingString("/historyWords.archive")
     }
     
     class func getStarredArrayPath() -> String
     {
         // Create a filepath for archiving.
-        var libraryDirectories : NSArray = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
+        let libraryDirectories : NSArray = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
         // Get document directory from that list
-        var libraryDirectory:String = libraryDirectories.objectAtIndex(0) as! String
+        let libraryDirectory:String = libraryDirectories.objectAtIndex(0) as! String
         // append with the .archive file name
-        return libraryDirectory.stringByAppendingPathComponent("starredWords.archive")
+        return libraryDirectory.stringByAppendingString("/starredWords.archive")
     }
     
     class func getStarredArray() -> Array<Definition>
     {
-        var starredArray  = NSKeyedUnarchiver.unarchiveObjectWithFile(self.getStarredArrayPath()) as! Array<Definition>?
+        let starredArray  = NSKeyedUnarchiver.unarchiveObjectWithFile(self.getStarredArrayPath()) as! Array<Definition>?
         
         if starredArray != nil {
             return starredArray!
@@ -98,18 +98,18 @@ class Storage: NSObject {
     
     class func saveHistoryArray(historyArray: Array<Definition>)
     {
-        var path : String = getHistoryArrayPath()
+        let path : String = getHistoryArrayPath()
         
         if NSKeyedArchiver.archiveRootObject(historyArray, toFile: path) {
-            println("Success saving history words file")
+            print("Success saving history words file")
         } else {
-            println("Unable to write history words file")
+            print("Unable to write history words file")
         }
     }
     
     class func getHistoryArray() -> Array<Definition>
     {
-        var historyArray  = NSKeyedUnarchiver.unarchiveObjectWithFile(self.getHistoryArrayPath()) as! Array<Definition>?
+        let historyArray  = NSKeyedUnarchiver.unarchiveObjectWithFile(self.getHistoryArrayPath()) as! Array<Definition>?
         
         if historyArray != nil {
             return historyArray!

@@ -56,7 +56,7 @@ class ResultsPageViewController: UIViewController {
         super.viewDidLoad()
         
         //Gesture tapper for the textview to recognize which word was tapped
-        var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "relatedTagTapped:")
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "relatedTagTapped:")
         self.relatedTagsTextView.addGestureRecognizer(tap)
         
         //Hide related label if there are not any related tags
@@ -74,7 +74,7 @@ class ResultsPageViewController: UIViewController {
         if pageIndex % 2 != 0 {
             //If image is odd then flip it so it feels like the bg is continuous
             let srcImage = self.backgroundImageView.image!
-            self.backgroundImageView.image = UIImage(CGImage: srcImage.CGImage, scale: srcImage.scale, orientation: UIImageOrientation.UpMirrored)
+            self.backgroundImageView.image = UIImage(CGImage: srcImage.CGImage!, scale: srcImage.scale, orientation: UIImageOrientation.UpMirrored)
         }
         
         self.setUpPageInformation()
@@ -145,19 +145,19 @@ class ResultsPageViewController: UIViewController {
     
     func setTagsText()
     {
-        var tagString : NSMutableAttributedString = NSMutableAttributedString(string: "");
+        let tagString : NSMutableAttributedString = NSMutableAttributedString(string: "");
         
         for tag in self.relatedTagsArray {
-            var font : UIFont? =  UIFont(name: "AvenirNext-Bold", size: 20.0)
-            var attrs = ["tagWord": tag, NSFontAttributeName: font!, NSForegroundColorAttributeName : UIColor.darkGrayColor()]
-            var attString = NSMutableAttributedString(string: tag.uppercaseString, attributes: attrs)
+            let font : UIFont? =  UIFont(name: "AvenirNext-Bold", size: 20.0)
+            let attrs = ["tagWord": tag, NSFontAttributeName: font!, NSForegroundColorAttributeName : UIColor.darkGrayColor()]
+            let attString = NSMutableAttributedString(string: tag.uppercaseString, attributes: attrs)
             
             tagString.appendAttributedString(attString)
             
             if tag != self.relatedTagsArray.last {
                 //Add " - "
-                var otherAtts = [NSFontAttributeName: font!, NSForegroundColorAttributeName : UIColor.blackColor()]
-                var separatorString = NSMutableAttributedString(string: " - ", attributes: otherAtts)
+                let otherAtts = [NSFontAttributeName: font!, NSForegroundColorAttributeName : UIColor.blackColor()]
+                let separatorString = NSMutableAttributedString(string: " - ", attributes: otherAtts)
                 
                 tagString.appendAttributedString(separatorString)
             }
@@ -170,26 +170,25 @@ class ResultsPageViewController: UIViewController {
     func relatedTagTapped(recognizer: UITapGestureRecognizer)
     {
 
-        var layoutManager = self.relatedTagsTextView.layoutManager
-        var textView = self.relatedTagsTextView;
+        let layoutManager = self.relatedTagsTextView.layoutManager
+        let textView = self.relatedTagsTextView;
         var location: CGPoint = recognizer.locationInView(textView)
         location.x -= textView.textContainerInset.left
         location.y -= textView.textContainerInset.top
         
-        var charIndex = layoutManager.characterIndexForPoint(location, inTextContainer: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+        let charIndex = layoutManager.characterIndexForPoint(location, inTextContainer: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
         
         if charIndex < textView.textStorage.length {
             var range = NSRange(location: 0, length: 0)
             
-            let tagVal2 = textView.attributedText?.attribute("tagWord", atIndex: charIndex, effectiveRange: &range) as? NSString
             if let tagVal = textView.attributedText?.attribute("tagWord", atIndex: charIndex, effectiveRange: &range) as? NSString {
-                println("Tag value: \(tagVal)")
-                println("charIndex: \(charIndex)")
-                println("range.location = \(range.location)")
-                println("range.length = \(range.length)")
+                print("Tag value: \(tagVal)")
+                print("charIndex: \(charIndex)")
+                print("range.location = \(range.location)")
+                print("range.length = \(range.length)")
                 let tappedPhrase = (textView.attributedText.string as NSString).substringWithRange(range)
-                println("tapped phrase: \(tappedPhrase)")
-                var mutableText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
+                print("tapped phrase: \(tappedPhrase)")
+                let mutableText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
                 mutableText.addAttributes([NSForegroundColorAttributeName: UIColor.blueColor()], range: range)
                 textView.attributedText = mutableText
                 
@@ -243,10 +242,10 @@ class ResultsPageViewController: UIViewController {
         //Launch new request for the tapped word
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
             //Remove spaces and put +
-            var searchWord : String = word.stringByReplacingOccurrencesOfString(" ", withString: "+", options: nil, range: nil)
+            let searchWord : String = word
             self.queryResult = SlangNet.sharedInstance.requestWordInformation(searchWord);
             
-            println("Request completed");
+            print("Request completed");
         
             dispatch_async(dispatch_get_main_queue()) {
                 self.view.userInteractionEnabled = true;
@@ -265,10 +264,10 @@ class ResultsPageViewController: UIViewController {
                     //Error!
                     if self.queryResult?.definitions?.count == 0 {
                         //No results
-                        println("no results")
+                        print("no results")
                     } else {
                         //Error
-                        println("error")
+                        print("error")
                         //TSMessage
                         TSMessage.showNotificationWithTitle("Connection failed", subtitle: "Check your internet connection!", type:TSMessageNotificationType.Error);
                     }

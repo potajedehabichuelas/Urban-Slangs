@@ -36,7 +36,7 @@ class Definition: NSObject, NSCoding {
     
     class func definitionFromJSON(defDict: NSDictionary) -> Definition
     {
-        var newDef : Definition = Definition();
+        let newDef : Definition = Definition();
         
         //Word
         newDef.word = defDict[DEFINITION_WORD_KEY] as! String;
@@ -85,7 +85,7 @@ class Definition: NSObject, NSCoding {
         aCoder.encodeInteger(self.thumbsUp, forKey:DEFINITION_THUMBS_UP_KEY)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         
         super.init()
         

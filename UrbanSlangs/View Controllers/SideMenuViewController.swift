@@ -23,11 +23,9 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //If device has ios 7, UIVisualEffectView is not available
-       switch UIDevice.currentDevice().systemVersion.compare("8.0.0", options: NSStringCompareOptions.NumericSearch) {
-        case .OrderedSame, .OrderedDescending:
-            //Ios 8 or higher
-            self.effectView = UIVisualEffectView();
+        //Ios 8 or higher
+        if #available(iOS 8.0, *) {
+            self.effectView = UIVisualEffectView()
             //Blur effect for the imagev background
             let blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
             self.effectView! = UIVisualEffectView (effect: blur);
@@ -36,10 +34,12 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             if (self.imageViewBg != nil) {
                 self.view.insertSubview(self.effectView!, aboveSubview: self.imageViewBg)
             }
-       case .OrderedAscending:
-        //ios 7 and lower
-            println("ios 7")
-        }
+        } else {
+            // Fallback on earlier versions
+            
+            //ios 7 and lower
+            print("ios 7")
+        };
 
     }
 
@@ -80,7 +80,7 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         self.historyArray = Array();
         Storage.saveHistoryArray(self.historyArray)
         ;
-        var indexSet : NSIndexSet = NSIndexSet(indexesInRange: NSRange(location: 0, length:self.historyTableView.numberOfSections()))
+        let indexSet : NSIndexSet = NSIndexSet(indexesInRange: NSRange(location: 0, length:self.historyTableView.numberOfSections))
         self.historyTableView.deleteSections(indexSet, withRowAnimation: UITableViewRowAnimation.Top);
     }
     
@@ -88,9 +88,9 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "HistorySegue") {
-            var destVC : ResultsPageViewController = segue.destinationViewController as! ResultsPageViewController;
-            destVC.definition = self.historyArray[self.historyTableView.indexPathForSelectedRow()!.section]
-            self.historyTableView.deselectRowAtIndexPath(self.historyTableView.indexPathForSelectedRow()!, animated: true)
+            let destVC : ResultsPageViewController = segue.destinationViewController as! ResultsPageViewController;
+            destVC.definition = self.historyArray[self.historyTableView.indexPathForSelectedRow!.section]
+            self.historyTableView.deselectRowAtIndexPath(self.historyTableView.indexPathForSelectedRow!, animated: true)
         }
     }
 
@@ -105,14 +105,14 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.historyTableView.dequeueReusableCellWithIdentifier("DefinitionCell") as! UITableViewCell
+        let cell = self.historyTableView.dequeueReusableCellWithIdentifier("DefinitionCell")
         
-        var def : Definition =  self.historyArray[indexPath.section]
-        cell.textLabel?.text = def.word
+        let def : Definition =  self.historyArray[indexPath.section]
+        cell!.textLabel?.text = def.word
         
-        cell.backgroundColor = UIColor(red:0.0, green:0.0,blue:0.0,alpha:0.41)
+        cell!.backgroundColor = UIColor(red:0.0, green:0.0,blue:0.0,alpha:0.41)
         
-        return cell
+        return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

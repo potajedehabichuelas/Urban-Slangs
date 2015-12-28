@@ -45,7 +45,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         //Dismiss keyboard when tapping outside the view
-        var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tap)
         
         //TSmessage vc
@@ -54,7 +54,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         //Admob thing
         self.bannerView.adUnitID = "ca-app-pub-7267181828972563/6462911130"
         self.bannerView.rootViewController = self;
-        var request:GADRequest = GADRequest()
+        let request:GADRequest = GADRequest()
         self.bannerView.loadRequest(request)
         
         //SWRevealVc
@@ -63,11 +63,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         self.revealViewController().bounceBackOnLeftOverdraw = true;
         
         //Gesture recognizers
-        var swipeRight = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRight)
         
-        var swipeLeft = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeft)
         
@@ -159,7 +159,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             } else {
                 //Input string
                 //Remove spaces and put +
-                var searchWord : String = self.searchTextField.text.stringByReplacingOccurrencesOfString(" ", withString: "+", options: nil, range: nil)
+                let searchWord : String = self.searchTextField.text!
                 self.queryResult = SlangNet.sharedInstance.requestWordInformation(searchWord);
             }
             
@@ -177,7 +177,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                         self.dismissKeyboard()
                 })
                 
-                println("Request completed");
+                print("Request completed");
                 if (self.queryResult != nil && self.queryResult?.definitions?.count > 0) {
                     self.searchTextField.text = "";
                     //Go to the next screen to display results
@@ -197,12 +197,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                     //Error!
                     if self.queryResult?.definitions?.count == 0 {
                         //No results
-                        println("no results")
+                        print("no results")
                         //TSMessage
                         TSMessage.showNotificationWithTitle("Whooops :(", subtitle: "No results matched your search", type:TSMessageNotificationType.Error);
                     } else {
                         //Error
-                        println("error")
+                        print("error")
                         //TSMessage
                         TSMessage.showNotificationWithTitle("Connection failed", subtitle: "Check your internet connection!", type:TSMessageNotificationType.Error);
                     }
@@ -232,16 +232,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
             
             var info = notification.userInfo!
-            var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+            let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
             
             //Get animation time
-            var durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as! Double;
-            var animationDuration : NSTimeInterval = durationValue
+            let durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as! Double;
+            let animationDuration : NSTimeInterval = durationValue
             
             //And the animation curve
-            var curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as! Int;
+            //let curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as! Int;
             
-            var animationCurve = UIViewAnimationCurve(rawValue: curveValue) // or use UIViewAnimationOptions(kbCurve << 16)  directly in the UIView animation
+            //var animationCurve = UIViewAnimationCurve(rawValue: curveValue) // or use UIViewAnimationOptions(kbCurve << 16)  directly in the UIView animation
             
             //When we are typing the comment, move upwards the view so we can see what we are typing
             
@@ -259,16 +259,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     func keyboardWillHide(notification: NSNotification)
     {
         var info = notification.userInfo!
-        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         //Get animation time
-        var durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as! Double;
-        var animationDuration : NSTimeInterval = durationValue
+        let durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as! Double;
+        let animationDuration : NSTimeInterval = durationValue
         
         //And the animation curve
-        var curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as! Int;
+        //let curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as! Int;
         
-        var animationCurve = UIViewAnimationCurve(rawValue: curveValue) // or use UIViewAnimationOptions(kbCurve << 16)  directly in the UIView animation
+        //var animationCurve = UIViewAnimationCurve(rawValue: curveValue) // or use UIViewAnimationOptions(kbCurve << 16)  directly in the UIView animation
         
         //When we are typing the comment, move upwards the view so we can see what we are typing
         
@@ -286,12 +286,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "QueryResultSegue") {
-            var destVC : ResultsManagerViewController = segue.destinationViewController as! ResultsManagerViewController;
+            let destVC : ResultsManagerViewController = segue.destinationViewController as! ResultsManagerViewController;
             destVC.results = self.queryResult!;
         }
     }
 
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if (identifier == SeguesID.QUERY_RESULT_SEGUE_ID && self.canPerformResultSegue) {
             self.canPerformResultSegue = false;
             return true;

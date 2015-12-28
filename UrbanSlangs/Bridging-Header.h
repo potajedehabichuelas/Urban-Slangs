@@ -13,10 +13,7 @@
 #import "TSMessage.h"
 #import "MBProgressHUD.h"
 
-#import "GADBannerView.h"
-#import "GADBannerView.h"
-#import "GADRequest.h"
-#import "GADInterstitial.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #import "SWRevealViewController.h"
 
