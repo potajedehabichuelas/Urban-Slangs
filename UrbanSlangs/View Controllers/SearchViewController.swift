@@ -41,11 +41,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         //Hidden status bar
         UIApplication.sharedApplication().statusBarHidden = true;
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         //Dismiss keyboard when tapping outside the view
-        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
         //TSmessage vc
@@ -63,11 +63,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         self.revealViewController().bounceBackOnLeftOverdraw = true;
         
         //Gesture recognizers
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(SearchViewController.gestureResponder(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRight)
         
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "gestureResponder:")
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(SearchViewController.gestureResponder(_:)))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeft)
         
@@ -188,7 +188,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                     //Show ad and after that perform segue
                     self.fullScreenAd.presentFromRootViewController(self.navigationController);
                     
-                    if self.queryResult?.resultType != QueryConstants.QUERY_RESULT_TYPE_EXACT && self.queryResult?.searchString != "random_Search" {
+                    if self.queryResult?.resultType != QUERY_RESULT_TYPE_EXACT && self.queryResult?.searchString != "random_Search" {
                         //TSMessage - //If result wasnt exact, inform the user
                         TSMessage.showNotificationWithTitle("Whooops :(", subtitle: "No results matched. But perhaps you might be interested in these!", type:TSMessageNotificationType.Warning);
                     }
@@ -238,11 +238,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             let durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as! Double;
             let animationDuration : NSTimeInterval = durationValue
             
-            //And the animation curve
-            //let curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as! Int;
-            
-            //var animationCurve = UIViewAnimationCurve(rawValue: curveValue) // or use UIViewAnimationOptions(kbCurve << 16)  directly in the UIView animation
-            
             //When we are typing the comment, move upwards the view so we can see what we are typing
             
             UIView.animateWithDuration(animationDuration, delay: 0.0, options: .CurveEaseInOut, animations: {
@@ -264,11 +259,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         //Get animation time
         let durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as! Double;
         let animationDuration : NSTimeInterval = durationValue
-        
-        //And the animation curve
-        //let curveValue : Int = info[UIKeyboardAnimationCurveUserInfoKey] as! Int;
-        
-        //var animationCurve = UIViewAnimationCurve(rawValue: curveValue) // or use UIViewAnimationOptions(kbCurve << 16)  directly in the UIView animation
         
         //When we are typing the comment, move upwards the view so we can see what we are typing
         

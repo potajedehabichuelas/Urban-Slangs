@@ -10,19 +10,6 @@ import UIKit
 
 class HttpHelper: NSObject {
     
-    /* Maybe use this as class variables so requests are in a queue (?)
-    //Qeue for the requests
-    let queue: dispatch_queue_t
-    //Semaphore
-    let semaphore: dispatch_semaphore_t
-    
-    init() {
-        self.stream = []
-        self.semaphore = dispatch_semaphore_create(0)
-        self.queue = dispatch_queue_create("channel.queue.", DISPATCH_QUEUE_CONCURRENT)
-    }
-    */
-    
     //POST Request
     class func httpPostURL(url: String, postPath: String, parametersDict:Dictionary<String, AnyObject>?) -> AnyObject?
     {
@@ -41,7 +28,6 @@ class HttpHelper: NSObject {
             parameters: parametersDict,
             success: {
                 (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                //println("JSON: " + responseObject.description);
                 
                 responseJSON = responseObject;
                 //Signal semaphore
@@ -49,8 +35,6 @@ class HttpHelper: NSObject {
                 
             }, failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
                 print("[HTTPHelper Error]: " + error.localizedDescription);
-                //Maybe check for internet connection ?
-                
                 //Signal semaphore
                 dispatch_semaphore_signal(semaphore);
         });
@@ -83,7 +67,6 @@ class HttpHelper: NSObject {
                 //print("JSON: " + responseObject.description);
                 
                 responseJSON = responseObject;
-                print(responseJSON);
                 //Signal semaphore
                 dispatch_semaphore_signal(semaphore);
                 

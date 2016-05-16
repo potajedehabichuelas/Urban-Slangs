@@ -43,7 +43,7 @@ class Storage: NSObject {
     {
         var starredArr = self.getStarredArray();
         //Set if the word is starred
-        for var i = 0; i < starredArr.count; i++ {
+        for i in 0 ..< starredArr.count {
             let def = starredArr[i]
             if (def.isEqualToDefinition(wordEntry)) {
                 //The word is there, delete it

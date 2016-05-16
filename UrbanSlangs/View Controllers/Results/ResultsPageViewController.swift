@@ -56,7 +56,7 @@ class ResultsPageViewController: UIViewController {
         super.viewDidLoad()
         
         //Gesture tapper for the textview to recognize which word was tapped
-        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "relatedTagTapped:")
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ResultsPageViewController.relatedTagTapped(_:)))
         self.relatedTagsTextView.addGestureRecognizer(tap)
         
         //Hide related label if there are not any related tags
