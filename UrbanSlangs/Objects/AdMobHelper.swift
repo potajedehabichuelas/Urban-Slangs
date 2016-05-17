@@ -9,14 +9,11 @@
 import UIKit
 
 class AdMobHelper: NSObject {
-   
-    class func createAndLoadFullScreenAd() -> GADInterstitial{
-        let ad : GADInterstitial = GADInterstitial();
+    class func createAndLoadInterstitial(delegate : GADInterstitialDelegate) -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-7267181828972563/7939644330")
+        interstitial.delegate = delegate;
+        interstitial.loadRequest(GADRequest())
         
-        //Interstitial ad
-        ad.adUnitID = "ca-app-pub-7267181828972563/7939644330"
-        let fullAdrequest:GADRequest = GADRequest()
-        ad.loadRequest(fullAdrequest)
-        return ad;
+        return interstitial
     }
 }

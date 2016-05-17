@@ -9,12 +9,12 @@
 #ifndef Slang_Dictionary_bridge_h
 #define Slang_Dictionary_bridge_h
 
-#import "AFNetworking.h"
-#import "TSMessage.h"
-#import "MBProgressHUD.h"
+#import "AFNetworking/AFNetworking.h"
+#import "MBProgressHUD/MBProgressHUD.h"
+#import "TSMessages/TSMessage.h"
 
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
-#import "SWRevealViewController.h"
+#import "SWRevealViewController/SWRevealViewController.h"
 
 #endif

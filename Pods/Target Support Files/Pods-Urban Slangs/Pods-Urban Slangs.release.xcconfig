@@ -1,0 +1,8 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Google-Mobile-Ads-SDK"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/AFNetworking.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/HexColors.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/MBProgressHUD.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/SWRevealViewController.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/TSMessages.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Google-Mobile-Ads-SDK"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "AFNetworking" -framework "AVFoundation" -framework "AudioToolbox" -framework "CoreBluetooth" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreTelephony" -framework "EventKit" -framework "EventKitUI" -framework "GoogleMobileAds" -framework "HexColors" -framework "MBProgressHUD" -framework "MediaPlayer" -framework "MessageUI" -framework "SWRevealViewController" -framework "StoreKit" -framework "SystemConfiguration" -framework "TSMessages" -weak_framework "AdSupport" -weak_framework "SafariServices"
+PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-Urban Slangs
+PODS_ROOT = ${SRCROOT}/Pods

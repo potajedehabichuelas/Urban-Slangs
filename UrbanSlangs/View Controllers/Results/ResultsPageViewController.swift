@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ResultsPageViewController: UIViewController {
+class ResultsPageViewController: UIViewController, GADInterstitialDelegate {
 
     @IBOutlet weak var starredButton: UIButton!
     
@@ -41,7 +41,7 @@ class ResultsPageViewController: UIViewController {
     
     var totalPages : Int = 0;
     
-    var fullScreenAd : GADInterstitial = GADInterstitial();
+    var fullScreenAd : GADInterstitial?;
     
     //For new requests
     var queryResult : QueryResult?;
@@ -80,7 +80,8 @@ class ResultsPageViewController: UIViewController {
         self.setUpPageInformation()
         
         //Recreate full screen ad (object can be used only once)
-        self.fullScreenAd = AdMobHelper.createAndLoadFullScreenAd();
+        self.fullScreenAd = AdMobHelper.createAndLoadInterstitial(self);
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -258,7 +259,9 @@ class ResultsPageViewController: UIViewController {
                     self.navigationController?.pushViewController(secondViewController, animated: true)
                     
                     //Show ad and after that perform segue
-                    self.fullScreenAd.presentFromRootViewController(self.navigationController);
+                    if (self.fullScreenAd != nil) {
+                        self.fullScreenAd!.presentFromRootViewController(self.navigationController!);
+                    }
                     
                 } else {
                     //Error!

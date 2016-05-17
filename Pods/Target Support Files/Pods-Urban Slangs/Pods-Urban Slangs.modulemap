@@ -1,0 +1,6 @@
+framework module Pods_Urban_Slangs {
+  umbrella header "Pods-Urban Slangs-umbrella.h"
+
+  export *
+  module * { export * }
+}

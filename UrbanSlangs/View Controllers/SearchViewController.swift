@@ -14,7 +14,7 @@ struct SeguesID {
 
 private let RANDOM_BUTTON_TAG = 10;
 
-class SearchViewController: UIViewController, UITextFieldDelegate {
+class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstitialDelegate {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -27,7 +27,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bannerView: GADBannerView!
     
-    var fullScreenAd : GADInterstitial = GADInterstitial();
+    var fullScreenAd : GADInterstitial?;
     
     var queryResult : QueryResult?;
     
@@ -87,9 +87,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         self.canPerformResultSegue = false;
         
         //Recreate full screen ad (object can be used only once)
-        self.fullScreenAd = AdMobHelper.createAndLoadFullScreenAd();
+        self.fullScreenAd = AdMobHelper.createAndLoadInterstitial(self);
         
     }
+    
     @IBAction func bookmarksClicked(sender: AnyObject?) {
         
         self.revealViewController().rightRevealToggleAnimated(true);
@@ -186,7 +187,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                     self.performSegueWithIdentifier(SeguesID.QUERY_RESULT_SEGUE_ID, sender:self.searchButton);
                     
                     //Show ad and after that perform segue
-                    self.fullScreenAd.presentFromRootViewController(self.navigationController);
+                    self.fullScreenAd!.presentFromRootViewController(self.navigationController!);
                     
                     if self.queryResult?.resultType != QUERY_RESULT_TYPE_EXACT && self.queryResult?.searchString != "random_Search" {
                         //TSMessage - //If result wasnt exact, inform the user

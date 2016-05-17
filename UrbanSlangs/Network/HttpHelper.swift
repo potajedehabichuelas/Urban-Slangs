@@ -8,80 +8,89 @@
 
 import UIKit
 
+
 class HttpHelper: NSObject {
     
     //POST Request
-    class func httpPostURL(url: String, postPath: String, parametersDict:Dictionary<String, AnyObject>?) -> AnyObject?
+    class func httpPostURL(url: String, postPath: String?, parametersDict:Dictionary<String, AnyObject>?) -> AnyObject?
     {
         // ? declares variable as optional, just in case the request fails
         var responseJSON : AnyObject? = nil;
         
         //Create the urls
-        let fullURL = url.stringByAppendingString(postPath);
+        var fullURL = url;
+        if (postPath != nil) {
+            fullURL = url.stringByAppendingString(postPath!);
+        }
         
         //Semaphore to wait for completition block
         let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
         
-        let manager : AFHTTPRequestOperationManager = AFHTTPRequestOperationManager();
+        let manager : AFHTTPSessionManager = AFHTTPSessionManager();
         
-        manager.POST(fullURL,
-            parameters: parametersDict,
-            success: {
-                (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                
-                responseJSON = responseObject;
-                //Signal semaphore
-                dispatch_semaphore_signal(semaphore);
-                
-            }, failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
-                print("[HTTPHelper Error]: " + error.localizedDescription);
-                //Signal semaphore
-                dispatch_semaphore_signal(semaphore);
-        });
-        
-        //Wait for the completition of the request
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-    
-        return responseJSON;
-    }
-
-    //GET Request
-    class func httpGetURL(url: String, postPath: String, parametersDict:Dictionary<String, String>?) -> AnyObject?
-    {
-    
-        // ? declares variable as optional, just in case the request fails
-        var responseJSON : AnyObject? = nil;
-        
-        //Create the urls
-        let fullURL = url.stringByAppendingString(postPath);
-        
-        //Semaphore to wait for completition block
-        let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
-        
-        let manager : AFHTTPRequestOperationManager = AFHTTPRequestOperationManager();
-        
-        manager.GET(fullURL,
-            parameters: parametersDict,
-            success: {
-                (operation: AFHTTPRequestOperation!,responseObject: AnyObject!) in
-                //print("JSON: " + responseObject.description);
-                
-                responseJSON = responseObject;
-                //Signal semaphore
-                dispatch_semaphore_signal(semaphore);
-                
-            },failure: { (operation: AFHTTPRequestOperation!,error: NSError!) in
+        manager.POST(fullURL, parameters: parametersDict, progress: nil, success: {
+            (operation: NSURLSessionTask!,responseObject: AnyObject?) in
+            //print("JSON: " + responseObject!.description);
+            
+            responseJSON = responseObject;
+            //Signal semaphore
+            dispatch_semaphore_signal(semaphore);
+            
+            }, failure: { (operation: NSURLSessionTask?,error: NSError!) in
                 print("[HTTPHelper Error]: " + error.localizedDescription);
                 //Maybe check for internet connection ?
                 
                 //Signal semaphore
                 dispatch_semaphore_signal(semaphore);
-        });
+        })
         
         //Wait for the completition of the request
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
         
         return responseJSON;
-
+    }
+    
+    
+    //GET Request
+    class func httpGetURL(url: String, postPath: String?, parametersDict:Dictionary<String, AnyObject>?) -> AnyObject?
+    {
+        
+        // ? declares variable as optional, just in case the request fails
+        var responseJSON : AnyObject? = nil;
+        
+        //Create the urls
+        //Create the urls
+        var fullURL = url;
+        if (postPath != nil) {
+            fullURL = url.stringByAppendingString(postPath!);
+        }
+        
+        //Semaphore to wait for completition block
+        let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
+        
+        let manager : AFHTTPSessionManager = AFHTTPSessionManager();
+        
+        manager.GET(fullURL, parameters: parametersDict, progress: nil, success:  {
+            (operation: NSURLSessionTask!,responseObject: AnyObject?) in
+            //println("JSON: " + responseObject.description);
+            
+            responseJSON = responseObject;
+            //println(responseJSON);
+            //Signal semaphore
+            dispatch_semaphore_signal(semaphore);
+            
+            }, failure: { (operation: NSURLSessionTask?,error: NSError!) in
+                print("[HTTPHelper Error]: " + error.localizedDescription);
+                //Maybe check for internet connection ?
+                
+                //Signal semaphore
+                dispatch_semaphore_signal(semaphore);
+        })
+        
+        //Wait for the completition of the request
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        
+        return responseJSON;
+        
     }
 }
