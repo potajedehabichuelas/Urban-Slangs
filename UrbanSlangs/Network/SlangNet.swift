@@ -25,21 +25,21 @@ class SlangNet: NSObject {
         return _singletonSharedInstance
     }
     
-    func parseJSON(inputData: NSData) -> NSDictionary{
-        let boardsDictionary: NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
+    func parseJSON(_ inputData: Data) -> NSDictionary{
+        let boardsDictionary: NSDictionary = (try! JSONSerialization.jsonObject(with: inputData, options: JSONSerialization.ReadingOptions.mutableContainers)) as! NSDictionary
         
         return boardsDictionary
     }
     
     //Request information for a word
-    func requestWordInformation(wordString: String) -> QueryResult?
+    func requestWordInformation(_ wordString: String) -> QueryResult?
     {
         print("Requesting information for word: " +  wordString);
         
         var dictParams : Dictionary<String, String> = Dictionary();
         dictParams[TERM_KEY] = wordString;
         
-        let requestResult : AnyObject? = HttpHelper.httpGetURL(BASE_URL, postPath:DEFINE_API, parametersDict:dictParams);
+        let requestResult : AnyObject? = HttpHelper.httpGetURL(BASE_URL, postPath:DEFINE_API, parametersDict:dictParams as Dictionary<String, AnyObject>?);
     
         //Translate JSON object into Definition Objects
         var queryResult : QueryResult?;
@@ -54,9 +54,8 @@ class SlangNet: NSObject {
     //Request information for a RANDOM word
     func requestRandomWordInformation() -> QueryResult?
     {
-        let dictParams = Dictionary<String, String>? ()
         
-        let requestResult : AnyObject? = HttpHelper.httpGetURL(BASE_URL, postPath:RANDOM_API, parametersDict:dictParams);
+        let requestResult : AnyObject? = HttpHelper.httpGetURL(BASE_URL, postPath:RANDOM_API, parametersDict:nil);
         
         //Translate JSON object into Definition Objects
         var queryResult : QueryResult?;

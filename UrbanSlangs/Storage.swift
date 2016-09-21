@@ -21,25 +21,25 @@ class Storage: NSObject {
         return _singletonSharedInstance
     }
     
-    class func addHistoryWordEntry(wordEntry: Definition)
+    class func addHistoryWordEntry(_ wordEntry: Definition)
     {
         var historyArr = self.getHistoryArray();
         //Remove it if it was there
-        if let index = historyArr.indexOf(wordEntry) {
-            historyArr.removeAtIndex(index);
+        if let index = historyArr.index(of: wordEntry) {
+            historyArr.remove(at: index);
         }
-        historyArr.insert(wordEntry, atIndex: 0)
+        historyArr.insert(wordEntry, at: 0)
         self.saveHistoryArray(historyArr)
     }
     
-    class func addStarredWordEntry(def: Definition)
+    class func addStarredWordEntry(_ def: Definition)
     {
         var starredArr = self.getStarredArray();
-        starredArr.insert(def, atIndex: 0)
+        starredArr.insert(def, at: 0)
         self.saveStarredArray(starredArr)
     }
     
-    class func removeStarredWordEntry(wordEntry: Definition)
+    class func removeStarredWordEntry(_ wordEntry: Definition)
     {
         var starredArr = self.getStarredArray();
         //Set if the word is starred
@@ -47,14 +47,14 @@ class Storage: NSObject {
             let def = starredArr[i]
             if (def.isEqualToDefinition(wordEntry)) {
                 //The word is there, delete it
-                starredArr.removeAtIndex(i);
+                starredArr.remove(at: i);
                 self.saveStarredArray(starredArr)
                 break;
             }
         }
     }
     
-    class func saveStarredArray(starredArray: Array<Definition>)
+    class func saveStarredArray(_ starredArray: Array<Definition>)
     {
         let path : String = self.getStarredArrayPath()
         
@@ -68,26 +68,26 @@ class Storage: NSObject {
     class func getHistoryArrayPath() -> String
     {
         // Create a filepath for archiving.
-        let libraryDirectories : NSArray = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
+        let libraryDirectories : NSArray = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true) as NSArray
         // Get document directory from that list
-        let libraryDirectory:String = libraryDirectories.objectAtIndex(0) as! String
+        let libraryDirectory:String = libraryDirectories.object(at: 0) as! String
         // append with the .archive file name
-        return libraryDirectory.stringByAppendingString("/historyWords.archive")
+        return libraryDirectory + "/historyWords.archive"
     }
     
     class func getStarredArrayPath() -> String
     {
         // Create a filepath for archiving.
-        let libraryDirectories : NSArray = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
+        let libraryDirectories : NSArray = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true) as NSArray
         // Get document directory from that list
-        let libraryDirectory:String = libraryDirectories.objectAtIndex(0) as! String
+        let libraryDirectory:String = libraryDirectories.object(at: 0) as! String
         // append with the .archive file name
-        return libraryDirectory.stringByAppendingString("/starredWords.archive")
+        return libraryDirectory + "/starredWords.archive"
     }
     
     class func getStarredArray() -> Array<Definition>
     {
-        let starredArray  = NSKeyedUnarchiver.unarchiveObjectWithFile(self.getStarredArrayPath()) as! Array<Definition>?
+        let starredArray  = NSKeyedUnarchiver.unarchiveObject(withFile: self.getStarredArrayPath()) as! Array<Definition>?
         
         if starredArray != nil {
             return starredArray!
@@ -96,7 +96,7 @@ class Storage: NSObject {
         }
     }
     
-    class func saveHistoryArray(historyArray: Array<Definition>)
+    class func saveHistoryArray(_ historyArray: Array<Definition>)
     {
         let path : String = getHistoryArrayPath()
         
@@ -109,7 +109,7 @@ class Storage: NSObject {
     
     class func getHistoryArray() -> Array<Definition>
     {
-        let historyArray  = NSKeyedUnarchiver.unarchiveObjectWithFile(self.getHistoryArrayPath()) as! Array<Definition>?
+        let historyArray  = NSKeyedUnarchiver.unarchiveObject(withFile: self.getHistoryArrayPath()) as! Array<Definition>?
         
         if historyArray != nil {
             return historyArray!

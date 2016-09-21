@@ -8,6 +8,26 @@
 
 import UIKit
 import CoreData
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class ResultsPageViewController: UIViewController, GADInterstitialDelegate {
 
@@ -61,20 +81,20 @@ class ResultsPageViewController: UIViewController, GADInterstitialDelegate {
         
         //Hide related label if there are not any related tags
         if (self.relatedTagsArray.count == 0) {
-            self.relatedLabel.hidden = true;
+            self.relatedLabel.isHidden = true;
         }
         
         //Add entry to the history View
         Storage.addHistoryWordEntry(self.definition)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if pageIndex % 2 != 0 {
             //If image is odd then flip it so it feels like the bg is continuous
             let srcImage = self.backgroundImageView.image!
-            self.backgroundImageView.image = UIImage(CGImage: srcImage.CGImage!, scale: srcImage.scale, orientation: UIImageOrientation.UpMirrored)
+            self.backgroundImageView.image = UIImage(cgImage: srcImage.cgImage!, scale: srcImage.scale, orientation: UIImageOrientation.upMirrored)
         }
         
         self.setUpPageInformation()
@@ -84,20 +104,20 @@ class ResultsPageViewController: UIViewController, GADInterstitialDelegate {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         
-        self.backButton.hidden = false;
+        self.backButton.isHidden = false;
         self.backButton.alpha = 0.0;
-        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
             self.backButton.alpha = 1.0;
             }, completion:nil)
     }
     
-    @IBAction func setWordBookmarked(sender: AnyObject) {
+    @IBAction func setWordBookmarked(_ sender: AnyObject) {
         
-        self.starredButton.selected = self.starredButton.selected ? false : true;
-        if (self.starredButton.selected) {
+        self.starredButton.isSelected = self.starredButton.isSelected ? false : true;
+        if (self.starredButton.isSelected) {
             //Add entry
             Storage.addStarredWordEntry(self.definition);
         } else {
@@ -137,7 +157,7 @@ class ResultsPageViewController: UIViewController, GADInterstitialDelegate {
         for def in Storage.getStarredArray() {
             if (def.isEqualToDefinition(self.definition)) {
                 //Mark button as enabled
-                self.starredButton.selected = true;
+                self.starredButton.isSelected = true;
                 break;
             }
         }
@@ -150,48 +170,48 @@ class ResultsPageViewController: UIViewController, GADInterstitialDelegate {
         
         for tag in self.relatedTagsArray {
             let font : UIFont? =  UIFont(name: "AvenirNext-Bold", size: 20.0)
-            let attrs = ["tagWord": tag, NSFontAttributeName: font!, NSForegroundColorAttributeName : UIColor.darkGrayColor()]
-            let attString = NSMutableAttributedString(string: tag.uppercaseString, attributes: attrs)
+            let attrs = ["tagWord": tag, NSFontAttributeName: font!, NSForegroundColorAttributeName : UIColor.darkGray] as [String : Any]
+            let attString = NSMutableAttributedString(string: tag.uppercased(), attributes: attrs)
             
-            tagString.appendAttributedString(attString)
+            tagString.append(attString)
             
             if tag != self.relatedTagsArray.last {
                 //Add " - "
-                let otherAtts = [NSFontAttributeName: font!, NSForegroundColorAttributeName : UIColor.blackColor()]
+                let otherAtts = [NSFontAttributeName: font!, NSForegroundColorAttributeName : UIColor.black]
                 let separatorString = NSMutableAttributedString(string: " - ", attributes: otherAtts)
                 
-                tagString.appendAttributedString(separatorString)
+                tagString.append(separatorString)
             }
         }
         
         self.relatedTagsTextView.attributedText = tagString;
-        self.relatedTagsTextView.selectable = false;
+        self.relatedTagsTextView.isSelectable = false;
     }
     
-    func relatedTagTapped(recognizer: UITapGestureRecognizer)
+    func relatedTagTapped(_ recognizer: UITapGestureRecognizer)
     {
 
         let layoutManager = self.relatedTagsTextView.layoutManager
         let textView = self.relatedTagsTextView;
-        var location: CGPoint = recognizer.locationInView(textView)
-        location.x -= textView.textContainerInset.left
-        location.y -= textView.textContainerInset.top
+        var location: CGPoint = recognizer.location(in: textView)
+        location.x -= (textView?.textContainerInset.left)!
+        location.y -= (textView?.textContainerInset.top)!
         
-        let charIndex = layoutManager.characterIndexForPoint(location, inTextContainer: textView.textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
+        let charIndex = layoutManager.characterIndex(for: location, in: (textView?.textContainer)!, fractionOfDistanceBetweenInsertionPoints: nil)
         
-        if charIndex < textView.textStorage.length {
+        if charIndex < textView?.textStorage.length {
             var range = NSRange(location: 0, length: 0)
             
-            if let tagVal = textView.attributedText?.attribute("tagWord", atIndex: charIndex, effectiveRange: &range) as? NSString {
+            if let tagVal = textView?.attributedText?.attribute("tagWord", at: charIndex, effectiveRange: &range) as? NSString {
                 print("Tag value: \(tagVal)")
                 print("charIndex: \(charIndex)")
                 print("range.location = \(range.location)")
                 print("range.length = \(range.length)")
-                let tappedPhrase = (textView.attributedText.string as NSString).substringWithRange(range)
+                let tappedPhrase = (textView!.attributedText.string as NSString).substring(with: range)
                 print("tapped phrase: \(tappedPhrase)")
-                let mutableText = textView.attributedText.mutableCopy() as! NSMutableAttributedString
-                mutableText.addAttributes([NSForegroundColorAttributeName: UIColor.blueColor()], range: range)
-                textView.attributedText = mutableText
+                let mutableText = textView?.attributedText.mutableCopy() as! NSMutableAttributedString
+                mutableText.addAttributes([NSForegroundColorAttributeName: UIColor.blue], range: range)
+                textView?.attributedText = mutableText
                 
                 //Request new word
                 self.requestTagWordInformation(tappedPhrase);
@@ -201,13 +221,13 @@ class ResultsPageViewController: UIViewController, GADInterstitialDelegate {
 
 
     }
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseOut, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: {
             self.backButton.alpha = 0.0;
             }, completion:{ finished in
-                self.backButton.hidden = true;
+                self.backButton.isHidden = true;
         })
     }
     
@@ -225,42 +245,42 @@ class ResultsPageViewController: UIViewController, GADInterstitialDelegate {
     }
     
     
-    @IBAction func backToSearch(sender: AnyObject) {
+    @IBAction func backToSearch(_ sender: AnyObject) {
         if self.navigationController != nil {
-            self.navigationController?.popViewControllerAnimated(true);
+            _ = self.navigationController?.popViewController(animated: true);
         } else {
-            self.dismissViewControllerAnimated(true, completion: nil);
+            self.dismiss(animated: true, completion: nil);
         }
     }
 
-    func requestTagWordInformation(word : String)
+    func requestTagWordInformation(_ word : String)
     {
         //Show progress indicator
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true);
+        MBProgressHUD.showAdded(to: self.view, animated: true);
         //Disable editing for a bit
-        self.view.userInteractionEnabled = false;
+        self.view.isUserInteractionEnabled = false;
         
         //Launch new request for the tapped word
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+        DispatchQueue.global(qos: .userInitiated).async {
             //Remove spaces and put +
             let searchWord : String = word
             self.queryResult = SlangNet.sharedInstance.requestWordInformation(searchWord);
             
             print("Request completed");
         
-            dispatch_async(dispatch_get_main_queue()) {
-                self.view.userInteractionEnabled = true;
+            DispatchQueue.main.async {
+                self.view.isUserInteractionEnabled = true;
                 //Hide progress indicator
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                MBProgressHUD.hide(for: self.view, animated: true)
                 if (self.queryResult != nil && self.queryResult?.definitions?.count > 0) {
                     
-                    let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ResultManagerVC") as! ResultsManagerViewController
+                    let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "ResultManagerVC") as! ResultsManagerViewController
                     secondViewController.results = self.queryResult!;
                     self.navigationController?.pushViewController(secondViewController, animated: true)
                     
                     //Show ad and after that perform segue
                     if (self.fullScreenAd != nil) {
-                        self.fullScreenAd!.presentFromRootViewController(self.navigationController!);
+                        self.fullScreenAd!.present(fromRootViewController: self.navigationController!);
                     }
                     
                 } else {
@@ -272,7 +292,7 @@ class ResultsPageViewController: UIViewController, GADInterstitialDelegate {
                         //Error
                         print("error")
                         //TSMessage
-                        TSMessage.showNotificationWithTitle("Connection failed", subtitle: "Check your internet connection!", type:TSMessageNotificationType.Error);
+                        TSMessage.showNotification(withTitle: "Connection failed", subtitle: "Check your internet connection!", type:TSMessageNotificationType.error);
                     }
                     
                 }

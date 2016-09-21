@@ -7,6 +7,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 struct SeguesID {
     static let QUERY_RESULT_SEGUE_ID : String = "QueryResultSegue"
@@ -39,10 +59,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
     override func viewDidLoad() {
         super.viewDidLoad()
         //Hidden status bar
-        UIApplication.sharedApplication().statusBarHidden = true;
+        UIApplication.shared.isStatusBarHidden = true;
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SearchViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SearchViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SearchViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         //Dismiss keyboard when tapping outside the view
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SearchViewController.dismissKeyboard))
@@ -55,7 +75,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
         self.bannerView.adUnitID = "ca-app-pub-7267181828972563/6462911130"
         self.bannerView.rootViewController = self;
         let request:GADRequest = GADRequest()
-        self.bannerView.loadRequest(request)
+        self.bannerView.load(request)
         
         //SWRevealVc
         self.revealViewController().toggleAnimationDuration = 0.8;
@@ -64,24 +84,23 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
         
         //Gesture recognizers
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(SearchViewController.gestureResponder(_:)))
-        swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(SearchViewController.gestureResponder(_:)))
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeft)
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
-            Int64(3.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(3.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
             //hide disclaimer tag
-            UIView.animateWithDuration(0.3, delay: 0.0, options: .CurveEaseOut, animations: {
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
                 self.disclaimerLabel.alpha = 0.0;
                 }, completion: { finished in
             })
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         
         self.canPerformResultSegue = false;
@@ -91,9 +110,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
         
     }
     
-    @IBAction func bookmarksClicked(sender: AnyObject?) {
+    @IBAction func bookmarksClicked(_ sender: AnyObject?) {
         
-        self.revealViewController().rightRevealToggleAnimated(true);
+        self.revealViewController().rightRevealToggle(animated: true);
         self.bookmarksOnScreen = self.bookmarksOnScreen ? false : true;
         self.view.endEditing(true);
     }
@@ -103,16 +122,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
         // Dispose of any resources that can be recreated.
     }
     
-    func gestureResponder(gesture: UIGestureRecognizer) {
+    func gestureResponder(_ gesture: UIGestureRecognizer) {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-            if (swipeGesture.direction == UISwipeGestureRecognizerDirection.Right) {
+            if (swipeGesture.direction == UISwipeGestureRecognizerDirection.right) {
                 if (self.bookmarksOnScreen) {
                     self.bookmarksClicked(swipeGesture);
                 } else {
                     self.settingsClicked(swipeGesture);
                 }
-            } else if (swipeGesture.direction == UISwipeGestureRecognizerDirection.Left) {
+            } else if (swipeGesture.direction == UISwipeGestureRecognizerDirection.left) {
                 if (self.settingsOnScreen) {
                     self.settingsClicked(swipeGesture);
                 } else {
@@ -122,13 +141,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
         }
     }
     
-    @IBAction func settingsClicked(sender: AnyObject?) {
-        self.revealViewController().revealToggleAnimated(true);
+    @IBAction func settingsClicked(_ sender: AnyObject?) {
+        self.revealViewController().revealToggle(animated: true);
         self.settingsOnScreen = self.settingsOnScreen ? false : true;
         self.view.endEditing(true);
     }
     
-    @IBAction func searchString(sender: AnyObject) {
+    @IBAction func searchString(_ sender: AnyObject) {
         
         //Search for the introduced string
         
@@ -140,19 +159,19 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
         }
         
         //DisableButton
-        self.searchButton.enabled = false;
-        self.randomButton.enabled = false;
+        self.searchButton.isEnabled = false;
+        self.randomButton.isEnabled = false;
 
         //Show the activity indicator
         self.activityIndicator.alpha = 1.0;
-        self.activityIndicator.hidden = false;
+        self.activityIndicator.isHidden = false;
         
-        UIView.animateWithDuration(0.5, delay: 0.0, options: .CurveEaseOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
             self.activityIndicator.alpha = 0.0;
 
             }, completion: nil)
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+        DispatchQueue.global(qos: .userInitiated).async {
             
             if ((sender as! UIButton).tag == RANDOM_BUTTON_TAG) {
                 //Random
@@ -164,17 +183,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
                 self.queryResult = SlangNet.sharedInstance.requestWordInformation(searchWord);
             }
             
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 // update some UI
                 
                 //Hide the activity indicator
-                UIView.animateWithDuration(0.1, delay: 0.0, options: .CurveEaseOut, animations: {
+                UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
                     
                     }, completion: { finished in
-                        self.activityIndicator.hidden = true;
+                        self.activityIndicator.isHidden = true;
                         //Re enable the button
-                        self.searchButton.enabled = true;
-                        self.randomButton.enabled = true;
+                        self.searchButton.isEnabled = true;
+                        self.randomButton.isEnabled = true;
                         self.dismissKeyboard()
                 })
                 
@@ -184,14 +203,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
                     //Go to the next screen to display results
                     self.canPerformResultSegue = true;
                     
-                    self.performSegueWithIdentifier(SeguesID.QUERY_RESULT_SEGUE_ID, sender:self.searchButton);
+                    self.performSegue(withIdentifier: SeguesID.QUERY_RESULT_SEGUE_ID, sender:self.searchButton);
                     
                     //Show ad and after that perform segue
-                    self.fullScreenAd!.presentFromRootViewController(self.navigationController!);
+                    self.fullScreenAd!.present(fromRootViewController: self.navigationController!);
                     
                     if self.queryResult?.resultType != QUERY_RESULT_TYPE_EXACT && self.queryResult?.searchString != "random_Search" {
                         //TSMessage - //If result wasnt exact, inform the user
-                        TSMessage.showNotificationWithTitle("Whooops :(", subtitle: "No results matched. But perhaps you might be interested in these!", type:TSMessageNotificationType.Warning);
+                        TSMessage.showNotification(withTitle: "Whooops :(", subtitle: "No results matched. But perhaps you might be interested in these!", type:TSMessageNotificationType.warning);
                     }
                     
                 } else {
@@ -200,12 +219,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
                         //No results
                         print("no results")
                         //TSMessage
-                        TSMessage.showNotificationWithTitle("Whooops :(", subtitle: "No results matched your search", type:TSMessageNotificationType.Error);
+                        TSMessage.showNotification(withTitle: "Whooops :(", subtitle: "No results matched your search", type:TSMessageNotificationType.error);
                     } else {
                         //Error
                         print("error")
                         //TSMessage
-                        TSMessage.showNotificationWithTitle("Connection failed", subtitle: "Check your internet connection!", type:TSMessageNotificationType.Error);
+                        TSMessage.showNotification(withTitle: "Connection failed", subtitle: "Check your internet connection!", type:TSMessageNotificationType.error);
                     }
                     
                 }
@@ -217,7 +236,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
     
     //MARK - UITextField
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         self.searchString(self.searchButton);
         
@@ -227,44 +246,44 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
     
     //MARK - Keyboard and view editing
     
-    func keyboardWillShow(notification: NSNotification)
+    func keyboardWillShow(_ notification: Notification)
     {
         //Lift the view up only if the device is in landscape
-        if UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
+        if UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) {
             
-            var info = notification.userInfo!
-            let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+            var info = (notification as NSNotification).userInfo!
+            let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
             
             //Get animation time
             let durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as! Double;
-            let animationDuration : NSTimeInterval = durationValue
+            let animationDuration : TimeInterval = durationValue
             
             //When we are typing the comment, move upwards the view so we can see what we are typing
             
-            UIView.animateWithDuration(animationDuration, delay: 0.0, options: .CurveEaseInOut, animations: {
-                if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-                    self.view.frame = CGRectMake(self.view.frame.origin.x, -keyboardFrame.size.height * 0.2, self.view.frame.size.width, self.view.frame.size.height)
+            UIView.animate(withDuration: animationDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: {
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    self.view.frame = CGRect(x: self.view.frame.origin.x, y: -keyboardFrame.size.height * 0.2, width: self.view.frame.size.width, height: self.view.frame.size.height)
                 } else {
-                    self.view.frame = CGRectMake(self.view.frame.origin.x, -keyboardFrame.size.height * 0.5, self.view.frame.size.width, self.view.frame.size.height)
+                    self.view.frame = CGRect(x: self.view.frame.origin.x, y: -keyboardFrame.size.height * 0.5, width: self.view.frame.size.width, height: self.view.frame.size.height)
                 }
             }, completion: nil)
         }
     }
     
     
-    func keyboardWillHide(notification: NSNotification)
+    func keyboardWillHide(_ notification: Notification)
     {
-        var info = notification.userInfo!
+        var info = (notification as NSNotification).userInfo!
         //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         //Get animation time
         let durationValue : Double = info[UIKeyboardAnimationDurationUserInfoKey] as! Double;
-        let animationDuration : NSTimeInterval = durationValue
+        let animationDuration : TimeInterval = durationValue
         
         //When we are typing the comment, move upwards the view so we can see what we are typing
         
-        UIView.animateWithDuration(animationDuration, delay: 0.0, options: .CurveEaseInOut, animations: {
-            self.view.frame = CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height)
+        UIView.animate(withDuration: animationDuration, delay: 0.0, options: UIViewAnimationOptions(), animations: {
+            self.view.frame = CGRect(x: self.view.frame.origin.x, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
             }, completion: nil)
     }
     
@@ -275,14 +294,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate, GADInterstiti
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "QueryResultSegue") {
-            let destVC : ResultsManagerViewController = segue.destinationViewController as! ResultsManagerViewController;
+            let destVC : ResultsManagerViewController = segue.destination as! ResultsManagerViewController;
             destVC.results = self.queryResult!;
         }
     }
 
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if (identifier == SeguesID.QUERY_RESULT_SEGUE_ID && self.canPerformResultSegue) {
             self.canPerformResultSegue = false;
             return true;

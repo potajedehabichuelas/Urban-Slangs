@@ -27,7 +27,7 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         if #available(iOS 8.0, *) {
             self.effectView = UIVisualEffectView()
             //Blur effect for the imagev background
-            let blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+            let blur:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
             self.effectView! = UIVisualEffectView (effect: blur);
             self.effectView!.frame = self.view.frame
             
@@ -43,7 +43,7 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
 
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         
         //Reload data
@@ -53,9 +53,9 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
             self.historyTableView.reloadData();
             //Scrollable only if contents biggah
             if self.historyTableView.contentSize.height < self.historyTableView.frame.size.height {
-                self.historyTableView.scrollEnabled = false;
+                self.historyTableView.isScrollEnabled = false;
             } else {
-                self.historyTableView.scrollEnabled = true;
+                self.historyTableView.isScrollEnabled = true;
             }
         }
     }
@@ -72,42 +72,42 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func removeAds(sender: AnyObject) {
+    @IBAction func removeAds(_ sender: AnyObject) {
         
     }
 
-    @IBAction func trashHistory(sender: AnyObject) {
+    @IBAction func trashHistory(_ sender: AnyObject) {
         self.historyArray = Array();
         Storage.saveHistoryArray(self.historyArray)
         ;
-        let indexSet : NSIndexSet = NSIndexSet(indexesInRange: NSRange(location: 0, length:self.historyTableView.numberOfSections))
-        self.historyTableView.deleteSections(indexSet, withRowAnimation: UITableViewRowAnimation.Top);
+        let indexSet : IndexSet = IndexSet(integersIn: NSRange(location: 0, length:self.historyTableView.numberOfSections).toRange() ?? 0..<0)
+        self.historyTableView.deleteSections(indexSet, with: UITableViewRowAnimation.top);
     }
     
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "HistorySegue") {
-            let destVC : ResultsPageViewController = segue.destinationViewController as! ResultsPageViewController;
-            destVC.definition = self.historyArray[self.historyTableView.indexPathForSelectedRow!.section]
-            self.historyTableView.deselectRowAtIndexPath(self.historyTableView.indexPathForSelectedRow!, animated: true)
+            let destVC : ResultsPageViewController = segue.destination as! ResultsPageViewController;
+            destVC.definition = self.historyArray[(self.historyTableView.indexPathForSelectedRow! as NSIndexPath).section]
+            self.historyTableView.deselectRow(at: self.historyTableView.indexPathForSelectedRow!, animated: true)
         }
     }
 
     //MARK : UITableView Delegate
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1;
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return self.historyArray.count;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.historyTableView.dequeueReusableCellWithIdentifier("DefinitionCell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.historyTableView.dequeueReusableCell(withIdentifier: "DefinitionCell")
         
-        let def : Definition =  self.historyArray[indexPath.section]
+        let def : Definition =  self.historyArray[(indexPath as NSIndexPath).section]
         cell!.textLabel?.text = def.word
         
         cell!.backgroundColor = UIColor(red:0.0, green:0.0,blue:0.0,alpha:0.41)
@@ -115,29 +115,29 @@ class SideMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell!
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 5))
-        footerView.backgroundColor = UIColor.clearColor()
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 5))
+        footerView.backgroundColor = UIColor.clear
         
         return footerView
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 5))
-        headerView.backgroundColor = UIColor.clearColor()
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 5))
+        headerView.backgroundColor = UIColor.clear
         
         return headerView
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 5.0
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 10.0
         } else {

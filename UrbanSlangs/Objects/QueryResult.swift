@@ -28,7 +28,7 @@ class QueryResult: NSObject {
     var resultType : String = "";
 
     
-    class func queryResultFromJSON(searchString : String, jsonDict : NSDictionary) -> QueryResult
+    class func queryResultFromJSON(_ searchString : String, jsonDict : NSDictionary) -> QueryResult
     {
         let qresult : QueryResult = QueryResult();
         

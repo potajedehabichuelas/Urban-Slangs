@@ -9,8 +9,8 @@
 #ifndef Slang_Dictionary_bridge_h
 #define Slang_Dictionary_bridge_h
 
-#import "AFNetworking/AFNetworking.h"
 #import "MBProgressHUD/MBProgressHUD.h"
+#import "AFNetworking/AFNetworking.h"
 #import "TSMessages/TSMessage.h"
 
 #import <GoogleMobileAds/GoogleMobileAds.h>

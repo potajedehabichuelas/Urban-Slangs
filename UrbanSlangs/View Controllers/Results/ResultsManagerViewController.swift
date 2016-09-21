@@ -21,14 +21,14 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         super.viewDidLoad()
         
         //Create page view controller
-        self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as? UIPageViewController;
+        self.pageViewController = self.storyboard?.instantiateViewController(withIdentifier: "PageViewController") as? UIPageViewController;
         self.pageViewController!.dataSource = self;
         self.pageViewController!.delegate = self;
         
         //Set it up
         let startingViewController = self.viewControllerAtIndex(0)!;
         
-        self.pageViewController?.setViewControllers([startingViewController], direction: .Forward, animated: false, completion: nil);
+        self.pageViewController?.setViewControllers([startingViewController], direction: .forward, animated: false, completion: nil);
         
         // Change the size of page view controller
         self.pageViewController?.view.frame = self.view.frame;
@@ -37,7 +37,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         
         self.view.addSubview(self.pageViewController!.view);
         
-        self.pageViewController?.didMoveToParentViewController(self);
+        self.pageViewController?.didMove(toParentViewController: self);
         
     }
 
@@ -48,13 +48,13 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
     
     // #pragma mark - Page View Controller Data Source
     
-    func viewControllerAtIndex(index : Int) -> ResultsPageViewController?
+    func viewControllerAtIndex(_ index : Int) -> ResultsPageViewController?
     {
         if(results.definitions!.count == 0 || index > results.definitions!.count) {
             return nil;
         }
         
-        let resultVc = self.storyboard?.instantiateViewControllerWithIdentifier("ResultContentVC") as! ResultsPageViewController;
+        let resultVc = self.storyboard?.instantiateViewController(withIdentifier: "ResultContentVC") as! ResultsPageViewController;
         
         //Set the appropiate data for the VC
         resultVc.pageIndex = index;
@@ -66,7 +66,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
     }
 
 
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         var index : Int = (viewController as! ResultsPageViewController).pageIndex
         
@@ -83,7 +83,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         return self.viewControllerAtIndex(index);
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
        
         var index : Int = (viewController as! ResultsPageViewController).pageIndex
         
@@ -97,7 +97,7 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         return self.viewControllerAtIndex(index);
     }
     
-    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         
         if (results.definitions?.count == nil) {
             return 0;
@@ -106,12 +106,12 @@ class ResultsManagerViewController: UIViewController, UIPageViewControllerDataSo
         }
     }
     
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
         
         return 0;
     }
     
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         self.currentIndex = (previousViewControllers.first as! ResultsPageViewController).pageIndex;
     }
 }

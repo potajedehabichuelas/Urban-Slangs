@@ -9,10 +9,10 @@
 import UIKit
 
 class AdMobHelper: NSObject {
-    class func createAndLoadInterstitial(delegate : GADInterstitialDelegate) -> GADInterstitial {
+    class func createAndLoadInterstitial(_ delegate : GADInterstitialDelegate) -> GADInterstitial {
         let interstitial = GADInterstitial(adUnitID: "ca-app-pub-7267181828972563/7939644330")
         interstitial.delegate = delegate;
-        interstitial.loadRequest(GADRequest())
+        interstitial.load(GADRequest())
         
         return interstitial
     }
